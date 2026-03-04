@@ -39,7 +39,7 @@
 <h2 class="section-title">Ropa Fitness Mujer</h2>
 
 <!-- FILTROS Y ORDEN -->
-<div style="display:flex;gap:20px;justify-content:center;margin-bottom:30px;flex-wrap:wrap;">  
+<div class="catalog-controls" style="display:flex;gap:20px;justify-content:center;margin-bottom:30px;flex-wrap:wrap;">  
 <select id="filterCategory" onchange="filterProducts()" style="padding:8px;border-radius:8px;">
 <option value="all">Todas las categorías</option>
 <option value="fitness">Fitness</option>
@@ -421,13 +421,19 @@ oninput="searchProducts()">
 </section>
 
 <div class="cart" id="cart">
-<button onclick="toggleCart()" style="background:black;color:white;border:none;padding:8px 12px;border-radius:20px;float:right;cursor:pointer;">✕</button>
+<div class="cart-header">
+<div>
 <h2>Tu Canasta</h2>
+<p class="cart-sub">Revisa tus artículos antes de pagar</p>
+</div>
+<button class="cart-close" onclick="toggleCart()" aria-label="Cerrar carrito">✕</button>
+</div>
+<div class="cart-meta" id="cartMeta">0 productos</div>
 <div id="cartItems"></div>
 <div class="total" id="total">Total: $0</div>
 <button class="checkout-clear" onclick="clearCart()">Vaciar carrito</button>
 <div class="checkout-actions">
-<button class="checkout" onclick="openCheckout()">Finalizar Compra Aquí</button>
+<button class="checkout" onclick="openCheckout()">Proceder al pago</button>
 <button class="checkout-alt" onclick="checkoutWhatsApp()">Finalizar por WhatsApp</button>
 <button class="checkout-ig" onclick="checkoutInstagram()">Finalizar por Instagram</button>
 </div>
@@ -436,11 +442,16 @@ oninput="searchProducts()">
 <div class="checkout-panel" id="checkoutPanel" aria-hidden="true">
 <div class="checkout-card">
 <button class="checkout-close" onclick="closeCheckout()">✕</button>
-<h2>Finalizar Compra</h2>
-<p class="checkout-subtitle">Completa tus datos para confirmar el pedido directamente en la tienda.</p>
+<h2>Pago Seguro</h2>
+<p class="checkout-subtitle">Completa tus datos para confirmar el pedido.</p>
 
+<div class="checkout-layout">
+<aside class="checkout-side">
+<h3>Resumen de compra</h3>
 <div id="checkoutSummary" class="checkout-summary"></div>
-
+</aside>
+<section class="checkout-main">
+<h3>Datos de envío y pago</h3>
 <div class="checkout-form">
 <input type="text" id="customerName" placeholder="Nombre completo">
 <input type="email" id="customerEmail" placeholder="Correo electrónico">
@@ -455,8 +466,10 @@ oninput="searchProducts()">
 </select>
 <textarea id="customerNotes" rows="3" placeholder="Notas del pedido (opcional)"></textarea>
 </div>
+</section>
+</div>
 
-<button class="checkout-confirm" onclick="placeOrder()">Confirmar Pedido</button>
+<button class="checkout-confirm" onclick="placeOrder()">Confirmar y pagar</button>
 <div id="checkoutMessage" class="checkout-message"></div>
 </div>
 </div>
@@ -480,14 +493,14 @@ aria-label="WhatsApp">
 <span>Instagram</span>
 </a>
 <!-- BANNER DE CONFIANZA -->
-<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 60px;background:white;text-align:center;">
+<section class="trust-banner" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 60px;background:white;text-align:center;">
 <div>🚚 <strong>Envíos rápidos en Panamá</strong></div>
 <div>🔒 <strong>Pagos 100% seguros</strong></div>
 <div>💬 <strong>Atención directa por WhatsApp</strong></div>
 <div>🎁 <strong>Cambios fáciles</strong></div>
 </section>
 <h2 class="section-title">Métodos de Pago</h2>
-<section style="display:flex;justify-content:center;gap:40px;padding:20px;flex-wrap:wrap;">
+<section class="payment-methods" style="display:flex;justify-content:center;gap:40px;padding:20px;flex-wrap:wrap;">
 <div>💳 Visa</div>
 <div>💳 Mastercard</div>
 <div>🏦 Transferencia Bancaria</div>
@@ -541,7 +554,7 @@ aria-label="WhatsApp">
 
 <!-- TESTIMONIOS -->
 <h2 class="section-title">Lo que dicen nuestras clientas</h2>
-<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;padding:40px 60px;">
+<section class="testimonials" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;padding:40px 60px;">
 <div class="card">
 <p>⭐⭐⭐⭐⭐</p>
 <p>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx."</p>
@@ -554,7 +567,7 @@ aria-label="WhatsApp">
 </div>
 </section>
 <h2 class="section-title">Sobre MG Activewear SPA</h2>
-<section style="padding:40px 60px;text-align:center;max-width:900px;margin:auto;">
+<section class="about-section" style="padding:40px 60px;text-align:center;max-width:900px;margin:auto;">
 <p style="font-size:16px;line-height:1.6;">
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -622,7 +635,7 @@ loading="lazy">
 </footer>
 <script src="script.js"></script>
 
-<button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+<button class="back-to-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0, behavior:'smooth'})"
 style="position:fixed;bottom:20px;left:20px;padding:10px 14px;
 background:black;color:white;border:none;border-radius:50%;
 cursor:pointer;font-weight:bold;">
