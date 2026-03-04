@@ -53,6 +53,15 @@ function reserveInventoryForCart(){
     });
 }
 
+function ensureInventoryCoverage(){
+    document.querySelectorAll('.products .card').forEach(card => {
+        const name = (card.querySelector('h3')?.textContent || '').trim();
+        if(!name || inventory[name] !== undefined) return;
+        const declaredStock = parseInt(card.dataset.stock || '', 10);
+        inventory[name] = Number.isFinite(declaredStock) && declaredStock >= 0 ? declaredStock : 999;
+    });
+}
+
 function resolveProductImage(name){
     const cards = Array.from(document.querySelectorAll('.card'));
     const match = cards.find(card => {
@@ -186,6 +195,7 @@ function updateCart(){
     const cartItems = document.getElementById('cartItems');
     const totalEl = document.getElementById('total');
     const countEl = document.getElementById('cartCount');
+    const metaEl = document.getElementById('cartMeta');
     if(!cartItems || !totalEl || !countEl) return;
 
     cartItems.innerHTML = '';
@@ -207,9 +217,13 @@ function updateCart(){
     });
 
     const totals = getCartTotals();
+    const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     totalEl.innerText = `Total: $${totals.total.toFixed(2)}`;
-    countEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+    countEl.innerText = itemCount;
+    if(metaEl){
+        metaEl.innerText = `${itemCount} producto${itemCount === 1 ? '' : 's'} · Subtotal $${totals.subtotal.toFixed(2)}`;
+    }
     renderCheckoutSummary();
     saveCartState();
 }
@@ -306,10 +320,21 @@ window.checkoutInstagram = async function(){
         alert('Se abrirá Instagram. Si no se copió el texto, envíanos tu pedido manualmente.');
     }
 
-    const dmUrl = 'https://ig.me/m/mgactivewearspa';
-    const profileUrl = 'https://www.instagram.com/mgactivewearspa/';
-    const dmWindow = window.open(dmUrl, '_blank');
+    const username = 'mgactivewearspa';
+    const dmUrl = `https://ig.me/m/${username}`;
+    const profileUrl = `https://www.instagram.com/${username}/`;
+    const appProfileUrl = `instagram://user?username=${username}`;
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || '');
 
+    if(isMobile){
+        window.location.href = appProfileUrl;
+        setTimeout(() => {
+            window.location.href = dmUrl;
+        }, 900);
+        return;
+    }
+
+    const dmWindow = window.open(dmUrl, '_blank');
     if(!dmWindow){
         window.open(profileUrl, '_blank');
     }
@@ -365,23 +390,57 @@ window.placeOrder = function(){
         totals
     };
 
-    const existingOrders = JSON.parse(localStorage.getItem('mg_orders') || '[]');
-    existingOrders.push(order);
-    localStorage.setItem('mg_orders', JSON.stringify(existingOrders));
+    const payload = {
+        productos: order.items,
+        total: order.totals.total,
+        cliente: order.customer
+    };
 
     if(msg){
-        msg.textContent = `Pedido confirmado: ${orderId}. Te contactaremos pronto para coordinar la entrega.`;
+        msg.textContent = 'Enviando pedido...';
     }
 
-    cart = [];
-    window.updateCart();
-    saveCartState();
+    fetch('http://localhost:3000/api/pedido', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(async res => {
+        let body = null;
+        try{
+            body = await res.json();
+        } catch(_err){
+            body = null;
+        }
 
-    ['customerName','customerEmail','customerPhone','customerAddress','paymentMethod','customerNotes']
-        .forEach(id => {
-            const el = document.getElementById(id);
-            if(el) el.value = '';
-        });
+        if(!res.ok){
+            throw new Error((body && body.mensaje) || 'No se pudo guardar el pedido.');
+        }
+    })
+    .then(() => {
+        const existingOrders = JSON.parse(localStorage.getItem('mg_orders') || '[]');
+        existingOrders.push(order);
+        localStorage.setItem('mg_orders', JSON.stringify(existingOrders));
+
+        if(msg){
+            msg.textContent = `Pedido confirmado: ${orderId}. Te contactaremos pronto para coordinar la entrega.`;
+        }
+
+        cart = [];
+        window.updateCart();
+        saveCartState();
+
+        ['customerName','customerEmail','customerPhone','customerAddress','paymentMethod','customerNotes']
+            .forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.value = '';
+            });
+    })
+    .catch(() => {
+        if(msg){
+            msg.textContent = 'No se pudo enviar el pedido al servidor. Verifica que el backend esté activo en el puerto 3000.';
+        }
+    });
 }
 
 const checkoutPanel = document.getElementById('checkoutPanel');
@@ -400,6 +459,7 @@ window.addEventListener('keydown', function(e){
 });
 
 loadCartState();
+ensureInventoryCoverage();
 reserveInventoryForCart();
 window.updateCart();
 
@@ -435,21 +495,23 @@ window.searchProducts = function(){
 
 window.sortProducts = function(){
     const select = document.getElementById('sortPrice');
-    const container = document.querySelector('.products');
-    if(!select || !container) return;
+    const containers = Array.from(document.querySelectorAll('.products'));
+    if(!select || !containers.length) return;
 
     let sort = select.value;
-    let cards = Array.from(container.querySelectorAll('.card'));
+    containers.forEach(container => {
+        let cards = Array.from(container.querySelectorAll('.card'));
 
-    cards.sort((a,b)=>{
-        let priceA = parseFloat(a.dataset.price) || 0;
-        let priceB = parseFloat(b.dataset.price) || 0;
-        if(sort === 'low') return priceA - priceB;
-        if(sort === 'high') return priceB - priceA;
-        return 0;
+        cards.sort((a,b)=>{
+            let priceA = parseFloat(a.dataset.price) || 0;
+            let priceB = parseFloat(b.dataset.price) || 0;
+            if(sort === 'low') return priceA - priceB;
+            if(sort === 'high') return priceB - priceA;
+            return 0;
+        });
+
+        cards.forEach(card=>container.appendChild(card));
     });
-
-    cards.forEach(card=>container.appendChild(card));
 }
 
 // TEMPORIZADOR SEGURO
@@ -513,4 +575,27 @@ function prevImage(button) {
   images[activeIndex].classList.remove('active');
   let prevIndex = (activeIndex - 1 + images.length) % images.length;
   images[prevIndex].classList.add('active');
+}
+function enviarPedido() {
+  const nombre = document.getElementById("nombre").value;
+  const telefono = document.getElementById("telefono").value;
+
+  fetch("http://localhost:3000/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      customerName: nombre,
+      phone: telefono,
+      products: carrito,
+      total: total
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Pedido enviado correctamente 🔥");
+    carrito = [];
+    actualizarCarrito();
+  });
 }
