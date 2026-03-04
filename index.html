@@ -1,20 +1,633 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MG ACTIVEWEAR SPA</title>
+
+<meta name="description" content="MG Activewear Spa - Ropa fitness premium y productos de belleza en Panamá. Empodera tu cuerpo. Eleva tu belleza.">
+
+<meta property="og:title" content="MG Activewear Spa">
+<meta property="og:description" content="Ropa fitness premium y belleza en Panamá.">
+<meta property="og:image" content="MG ACTIVEWEAR SPA.JPG">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="MG ACTIVEWEAR SPA.png" alt="Logo">
-        <h1>Welcome to MG Activewear</h1>
-    </header>
-    <main>
-        <section>
-            <img src="MG ACTIVEWEAR SPA.png" alt="Another Logo">
-            <p>Discover our latest collections.</p>
-        </section>
-    </main>
+<header>
+<div class="logo-container">
+<img src="MG ACTIVEWEAR SPA.JPG" alt="MG Activewear Logo" class="logo">
+</div>
+<nav>
+<a href="#" onclick="goToCategory('fitness'); return false;">Ropa Fitness</a>
+<a href="#" onclick="goToCategory('beauty'); return false;">Belleza</a>
+<a href="#masVendidos">Nuevos</a>
+<a href="#oferta">Ofertas</a>
+</nav>
+<button class="cart-toggle" onclick="toggleCart()">🛍️ CANASTA <span class="cart-count" id="cartCount">0</span></button>
+</header>
+
+<section class="hero">
+<div>
+<h2>Empodera Tu Cuerpo. Eleva Tu Belleza.</h2>
+</div>
+</section>
+
+<h2 class="section-title">Ropa Fitness Mujer</h2>
+
+<!-- FILTROS Y ORDEN -->
+<div style="display:flex;gap:20px;justify-content:center;margin-bottom:30px;flex-wrap:wrap;">  
+<select id="filterCategory" onchange="filterProducts()" style="padding:8px;border-radius:8px;">
+<option value="all">Todas las categorías</option>
+<option value="fitness">Fitness</option>
+<option value="beauty">Belleza</option>
+</select>
+
+<input
+type="search"
+id="productSearch"
+class="product-search"
+placeholder="Buscar producto..."
+oninput="searchProducts()">
+
+<select id="sortPrice" onchange="sortProducts()" style="padding:8px;border-radius:8px;">
+<option value="default">Ordenar</option>
+<option value="low">Precio: Menor a Mayor</option>
+<option value="high">Precio: Mayor a Menor</option>
+</select>
+</div>
+<section class="products" id="fitness">
+<div class="card" data-category="fitness" data-price="110">
+  <div class="product-images">
+    <img src="Faja blanca.png" class="active">
+    <img src="Faja blanca 1.png">
+    <img src="Faja blanca 2.png">
+    <img src="Faja Rosa .png">
+    <img src="Faja Rosa 1.png">
+    <img src="Faja Roja.png">
+    <img src="Faja Roja 1.png">
+  </div>
+  <h3>Cinturilla Reloj de Arena</h3>
+  <p>$110</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+
+  <!-- Selector de colores -->
+  <div class="color-picker">
+    <span class="color" style="background:#ee8d8d" onclick="changeImage(this, 0); selectColor(this, 'Rosa')"></span>
+    <span class="color" style="background:#f5f5dc" onclick="changeImage(this, 1); selectColor(this, 'Beige')"></span>
+    <span class="color" style="background:#ff0000" onclick="changeImage(this, 2); selectColor(this, 'Rojo')"></span>
+</div>
+  
+  <div class="size-add-row">
+  <select id="sizeCinturilla">
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+<option value="XL">XL</option>
+</select>
+  <button onclick="addToCartFromCard(this, 'Cinturilla Reloj de Arena',110)">Añadir</button>
+  </div>
+</div>
+<div class="card" data-category="fitness" data-price="110">
+<div class="product-images">
+  <img src="faja larga .png" class="active">
+  <img src="Faja larga 1 .png">
+  <img src="Faja Larga 2.png">
+</div>
+<h3>Faja Larga</h3>
+<p>$110</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="changeImage(this, 0); selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#111111" onclick="changeImage(this, 1); selectColor(this, 'Negro')"></span>
+  <span class="color" style="background:#b76e79" onclick="changeImage(this, 2); selectColor(this, 'Rosa')"></span>
+</div>
+<button onclick="addToCartFromCard(this, 'Faja Larga',110)">Añadir</button>
+</div>
+<div class="card" data-category="fitness" data-price="65">
+<img src="short faja.png" alt="Short Faja">
+<h3>Short Faja</h3>
+<p>$65</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
+</div>
+<div class="size-add-row">
+<select id="size2"><option>S</option><option>M</option><option>L</option></select>
+<button onclick="addToCartFromCard(this, 'Short Faja',65)">Añadir</button>
+</div>
+</div>
+<div class="card" data-category="fitness" data-price="38">
+<img src="https://images.unsplash.com/photo-1549062572-544a64fb0c56">
+<h3>Short Sculpt</h3>
+<p>$38</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#f0c9c9" onclick="selectColor(this, 'Rosa Claro')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeShortSculpt">
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+<option value="XL">XL</option>
+</select>
+<button onclick="addToCartFromCard(this, 'Short Sculpt',38)">Añadir</button>
+</div>
+</div>
+<div class="card" data-category="fitness" data-price="42">
+<img src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4">
+<h3>Top Seamless</h3>
+<p>$42</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#ffffff" onclick="selectColor(this, 'Blanco')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="size4"><option>S</option><option>M</option><option>L</option></select>
+<button onclick="addToCartFromCard(this, 'Top Seamless',42)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="70">
+<img src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7">
+<h3>Hoodie Active</h3>
+<p>$70</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeHoodie1"><option value="S">S</option><option value="M">M</option><option value="L">L</option></select>
+<button onclick="addToCartFromCard(this, 'Hoodie Active',70)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="70">
+<img src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7">
+<h3>Hoodie Active</h3>
+<p>$70</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeHoodie2"><option value="S">S</option><option value="M">M</option><option value="L">L</option></select>
+<button onclick="addToCartFromCard(this, 'Hoodie Active',70)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="70">
+<img src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7">
+<h3>Hoodie Active</h3>
+<p>$70</p>
+<!-- Botones para pasar imágenes -->
+  <button class="prev" onclick="prevImage(this)">◀</button>
+  <button class="next" onclick="nextImage(this)">▶</button>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeHoodie3"><option value="S">S</option><option value="M">M</option><option value="L">L</option></select>
+<button onclick="addToCartFromCard(this, 'Hoodie Active',70)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="74">
+<img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=900&q=80" alt="Set deportivo beige">
+<h3>Set Deportivo Beige</h3>
+<p>$74</p>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#d3b8a0" onclick="selectColor(this, 'Nude')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeSetBeige"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button onclick="addToCartFromCard(this, 'Set Deportivo Beige',74)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="55">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80" alt="Leggings cintura alta">
+<h3>Leggings Cintura Alta</h3>
+<p>$55</p>
+<div class="color-picker">
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+  <span class="color" style="background:#5f4b45" onclick="selectColor(this, 'Chocolate')"></span>
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeLeggingsAlta"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button onclick="addToCartFromCard(this, 'Leggings Cintura Alta',55)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="34">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Top deportivo seamless">
+<h3>Top Deportivo Seamless</h3>
+<p>$34</p>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#f2c9cd" onclick="selectColor(this, 'Rosa Pálido')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeTopSeamless2"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button onclick="addToCartFromCard(this, 'Top Deportivo Seamless',34)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="fitness" data-price="47">
+<img src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=900&q=80" alt="Chaqueta deportiva ligera">
+<h3>Chaqueta Fitness Ligera</h3>
+<p>$47</p>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
+  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
+  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
+</div>
+<div class="size-add-row">
+<select id="sizeChaquetaLigera"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+<button onclick="addToCartFromCard(this, 'Chaqueta Fitness Ligera',47)">Añadir</button>
+</div>
+</div>
+
+
+</section>
+
+<h2 class="section-title">Productos de Belleza</h2>
+<section class="products" id="oferta">
+<div class="card" data-category="beauty" data-price="30" data-stock="8">
+<span style="font-size:12px;color:red;">Solo 8 disponibles</span>
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+<h3>Serum Glow</h3>
+<p>$30</p>
+<button onclick="addToCart('Serum Glow',30)">Añadir</button>
+</div>
+<div class="card" data-category="beauty" data-price="28">
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+<h3>Crema Reafirmante</h3>
+<p>$28</p>
+<button onclick="addToCart('Crema Reafirmante',28)">Añadir</button>
+</div>
+<div class="card" data-category="beauty" data-price="48">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+<h3>Kit Facial Glow</h3>
+<p>$48</p>
+<button onclick="addToCart('Kit Facial Glow',48)">Añadir</button>
+</div>
+
+<div class="card" data-category="beauty" data-price="34">
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+<h3>Body Oil Reafirmante</h3>
+<p>$34</p>
+<button onclick="addToCart('Body Oil Reafirmante',34)">Añadir</button>
+</div>
+
+<div class="card" data-category="beauty" data-price="26">
+<img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30">
+<h3>Protector Solar Sport</h3>
+<p>$26</p>
+<button onclick="addToCart('Protector Solar Sport',26)">Añadir</button>
+</div>
+
+<div class="card" data-category="beauty" data-price="29">
+<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9">
+<h3>Mascarilla Detox</h3>
+<p>$29</p>
+<button onclick="addToCart('Mascarilla Detox',29)">Añadir</button>
+</div>
+
+<div class="card" data-category="beauty" data-price="32">
+<img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80" alt="Lip Oil hidratante">
+<h3>Lip Oil Hydrating</h3>
+<p>$32</p>
+<div class="color-picker">
+  <span class="color" style="background:#f4c2c2" onclick="selectColor(this, 'Rose')"></span>
+  <span class="color" style="background:#f5e6d3" onclick="selectColor(this, 'Nude')"></span>
+  <span class="color" style="background:#c97f6f" onclick="selectColor(this, 'Terracotta')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantLipOil"><option>5 ml</option><option>10 ml</option></select>
+<button onclick="addToCartFromCard(this, 'Lip Oil Hydrating',32)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="beauty" data-price="36">
+<img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80" alt="Crema de día hidratante">
+<h3>Crema Día Hydralift</h3>
+<p>$36</p>
+<div class="color-picker">
+  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Piel Seca')"></span>
+  <span class="color" style="background:#e6dccf" onclick="selectColor(this, 'Piel Mixta')"></span>
+  <span class="color" style="background:#d6c5b5" onclick="selectColor(this, 'Piel Grasa')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantCremaDia"><option>30 ml</option><option>50 ml</option></select>
+<button onclick="addToCartFromCard(this, 'Crema Día Hydralift',36)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="beauty" data-price="41">
+<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80" alt="Sérum vitamina C">
+<h3>Sérum Vitamina C+</h3>
+<p>$41</p>
+<div class="color-picker">
+  <span class="color" style="background:#ffd38a" onclick="selectColor(this, 'Glow')"></span>
+  <span class="color" style="background:#f4b183" onclick="selectColor(this, 'Repair')"></span>
+  <span class="color" style="background:#f7e4c0" onclick="selectColor(this, 'Sensitive')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantSerumC"><option>20 ml</option><option>30 ml</option></select>
+<button onclick="addToCartFromCard(this, 'Sérum Vitamina C+',41)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="beauty" data-price="27">
+<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=900&q=80" alt="Bruma facial refrescante">
+<h3>Bruma Facial Refresh</h3>
+<p>$27</p>
+<div class="color-picker">
+  <span class="color" style="background:#d8f0ef" onclick="selectColor(this, 'Aloe')"></span>
+  <span class="color" style="background:#f7d9d9" onclick="selectColor(this, 'Rose Water')"></span>
+  <span class="color" style="background:#ece3d3" onclick="selectColor(this, 'Chamomile')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantBruma"><option>60 ml</option><option>120 ml</option></select>
+<button onclick="addToCartFromCard(this, 'Bruma Facial Refresh',27)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="beauty" data-price="38">
+<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Exfoliante corporal suave">
+<h3>Exfoliante Body Glow</h3>
+<p>$38</p>
+<div class="color-picker">
+  <span class="color" style="background:#f4ddc1" onclick="selectColor(this, 'Vainilla')"></span>
+  <span class="color" style="background:#d7b899" onclick="selectColor(this, 'Café')"></span>
+  <span class="color" style="background:#f1c9b7" onclick="selectColor(this, 'Rosa')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantExfoliante"><option>200 g</option><option>350 g</option></select>
+<button onclick="addToCartFromCard(this, 'Exfoliante Body Glow',38)">Añadir</button>
+</div>
+</div>
+
+<div class="card" data-category="beauty" data-price="33">
+<img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=80" alt="Mascarilla hidratante nocturna">
+<h3>Mascarilla Nocturna Repair</h3>
+<p>$33</p>
+<div class="color-picker">
+  <span class="color" style="background:#d8d0f2" onclick="selectColor(this, 'Lavanda')"></span>
+  <span class="color" style="background:#f5e6d3" onclick="selectColor(this, 'Avena')"></span>
+  <span class="color" style="background:#cbe8d7" onclick="selectColor(this, 'Aloe')"></span>
+</div>
+<div class="size-add-row">
+<select id="variantMascarillaNoche"><option>50 ml</option><option>100 ml</option></select>
+<button onclick="addToCartFromCard(this, 'Mascarilla Nocturna Repair',33)">Añadir</button>
+</div>
+</div>
+
+</section>
+
+<div class="cart" id="cart">
+<button onclick="toggleCart()" style="background:black;color:white;border:none;padding:8px 12px;border-radius:20px;float:right;cursor:pointer;">✕</button>
+<h2>Tu Canasta</h2>
+<div id="cartItems"></div>
+<div class="total" id="total">Total: $0</div>
+<button class="checkout-clear" onclick="clearCart()">Vaciar carrito</button>
+<div class="checkout-actions">
+<button class="checkout" onclick="openCheckout()">Finalizar Compra Aquí</button>
+<button class="checkout-alt" onclick="checkoutWhatsApp()">Finalizar por WhatsApp</button>
+<button class="checkout-ig" onclick="checkoutInstagram()">Finalizar por Instagram</button>
+</div>
+</div>
+
+<div class="checkout-panel" id="checkoutPanel" aria-hidden="true">
+<div class="checkout-card">
+<button class="checkout-close" onclick="closeCheckout()">✕</button>
+<h2>Finalizar Compra</h2>
+<p class="checkout-subtitle">Completa tus datos para confirmar el pedido directamente en la tienda.</p>
+
+<div id="checkoutSummary" class="checkout-summary"></div>
+
+<div class="checkout-form">
+<input type="text" id="customerName" placeholder="Nombre completo">
+<input type="email" id="customerEmail" placeholder="Correo electrónico">
+<input type="tel" id="customerPhone" placeholder="Teléfono (requerido)">
+<input type="text" id="customerAddress" placeholder="Dirección de entrega">
+<select id="paymentMethod">
+<option value="">Método de pago</option>
+<option value="Tarjeta">Tarjeta</option>
+<option value="Yappy">Yappy</option>
+<option value="Transferencia">Transferencia bancaria</option>
+<option value="Efectivo">Efectivo</option>
+</select>
+<textarea id="customerNotes" rows="3" placeholder="Notas del pedido (opcional)"></textarea>
+</div>
+
+<button class="checkout-confirm" onclick="placeOrder()">Confirmar Pedido</button>
+<div id="checkoutMessage" class="checkout-message"></div>
+</div>
+</div>
+
+<a class="whatsapp-float" 
+href="https://wa.me/50765010703?text=Hola%20MG%20Activewear%20quiero%20información%20sobre%20sus%20productos" 
+target="_blank" 
+rel="noopener noreferrer"
+aria-label="WhatsApp">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4zM12.06 21.3h-.01a9.25 9.25 0 01-4.72-1.3l-.34-.2-3.64.95.97-3.55-.22-.36a9.2 9.2 0 01-1.4-4.92c0-5.1 4.15-9.25 9.26-9.25 2.47 0 4.8.96 6.55 2.7a9.21 9.21 0 012.7 6.55c0 5.1-4.15 9.25-9.26 9.25zm5.07-6.88c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.41-1.67-1.58-1.95-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.83-2.03-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.93 2.94 4.68 4.12.65.28 1.16.44 1.56.56.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
+</svg>
+
+<span>WhatsApp</span>
+</a>
+<a class="instagram-float" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+<path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.009 4 20 5.991 20 7.75v8.5C20 18.009 18.009 20 16.25 20h-8.5C5.991 20 4 18.009 4 16.25v-8.5C4 5.991 5.991 4 7.75 4zm8.75 1.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+</svg>
+<span>Instagram</span>
+</a>
+<!-- BANNER DE CONFIANZA -->
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:40px 60px;background:white;text-align:center;">
+<div>🚚 <strong>Envíos rápidos en Panamá</strong></div>
+<div>🔒 <strong>Pagos 100% seguros</strong></div>
+<div>💬 <strong>Atención directa por WhatsApp</strong></div>
+<div>🎁 <strong>Cambios fáciles</strong></div>
+</section>
+<h2 class="section-title">Métodos de Pago</h2>
+<section style="display:flex;justify-content:center;gap:40px;padding:20px;flex-wrap:wrap;">
+<div>💳 Visa</div>
+<div>💳 Mastercard</div>
+<div>🏦 Transferencia Bancaria</div>
+<div>📲 Yappy</div>
+</section>
+
+<h2 class="section-title">Nuevas Llegadas</h2>
+<section class="new-arrivals">
+<article class="arrival-card">
+<span class="arrival-tag">NEW</span>
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Set beige deportivo">
+<h3>Set Nude Flow</h3>
+<p>Comodidad premium para entrenamiento o uso diario.</p>
+<strong>$79</strong>
+</article>
+<article class="arrival-card">
+<span class="arrival-tag">TREND</span>
+<img src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=900&q=80" alt="Top deportivo femenino">
+<h3>Top Blush Motion</h3>
+<p>Soporte suave con acabado elegante en tonos cálidos.</p>
+<strong>$39</strong>
+</article>
+<article class="arrival-card">
+<span class="arrival-tag">HOT</span>
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80" alt="Leggings beige cintura alta">
+<h3>Leggings Sand Sculpt</h3>
+<p>Cintura alta moldeadora y tela anti-transparencia.</p>
+<strong>$58</strong>
+</article>
+</section>
+
+<!-- MÁS VENDIDOS -->
+
+<h2 class="section-title">🔥 Más Vendidos</h2>
+<section class="products" id="masVendidos">
+<div class="card" style="border:2px solid black;">
+<span style="background:black;color:white;padding:5px 10px;border-radius:20px;font-size:12px;">MÁS VENDIDO</span>
+<img src="https://images.unsplash.com/photo-1549062572-544a64fb0c56">
+<h3>Leggings Sculpt Pro</h3>
+<p>$52</p>
+<div class="size-add-row">
+<select id="sizeBest">
+<option value="S">S</option>
+<option value="M">M</option>
+<option value="L">L</option>
+</select>
+<button onclick="addToCartFromCard(this, 'Leggings Sculpt Pro',52)">Añadir</button>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<h2 class="section-title">Lo que dicen nuestras clientas</h2>
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;padding:40px 60px;">
+<div class="card">
+<p>⭐⭐⭐⭐⭐</p>
+<p>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx."</p>
+<strong>- xxxxx.</strong>
+</div>
+<div class="card">
+<p>⭐⭐⭐⭐⭐</p>
+<p>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx."</p>
+<strong>- xxxxx.</strong>
+</div>
+</section>
+<h2 class="section-title">Sobre MG Activewear SPA</h2>
+<section style="padding:40px 60px;text-align:center;max-width:900px;margin:auto;">
+<p style="font-size:16px;line-height:1.6;">
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</p>
+</section>
+<h2 class="section-title">📍 Nuestra Ubicación</h2>
+
+<section class="location-section">
+<p class="location-intro">
+Estamos ubicados en <strong>Flor Plaza, Panamá</strong> — acércate para retiros, pruebas y entregas.
+</p>
+<div class="location-layout">
+<div class="location-map-card">
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.7373507407786!2d-79.53428824939397!3d8.971831203114385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8c226b26903%3A0x27e215c6beaa9b9a!2sFlor+Plaza!5e0!3m2!1ses!2spa!4v1700000000000!5m2!1ses!2spa" 
+width="100%" 
+height="350" 
+style="border:0;border-radius:12px;" 
+allowfullscreen="" 
+loading="lazy">
+</iframe>
+<a class="map-link" href="https://www.google.com/maps/place/Flor+Plaza/@8.9718312,-79.5342882,17z" target="_blank" rel="noopener noreferrer">
+➡️ Ver en Google Maps
+</a>
+</div>
+
+<form class="satisfaction-card">
+<h3>Formulario de Satisfacción</h3>
+<p>Ayúdanos a mejorar tu experiencia con MG Activewear Spa.</p>
+<input type="text" placeholder="Nombre (opcional)">
+<select>
+<option value="">¿Cómo calificas tu experiencia?</option>
+<option>Excelente</option>
+<option>Muy buena</option>
+<option>Buena</option>
+<option>Regular</option>
+</select>
+<select>
+<option value="">¿Qué te gustó más?</option>
+<option>Calidad de productos</option>
+<option>Atención al cliente</option>
+<option>Variedad de tallas/colores</option>
+<option>Tiempo de entrega</option>
+</select>
+<textarea rows="4" placeholder="Comentario o sugerencia"></textarea>
+<button type="button" onclick="alert('¡Gracias por tu opinión!')">Enviar opinión</button>
+</form>
+</div>
+</section>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    
+    <h3>MG Activewear Spa</h3>
+    
+    <p>Empodera tu cuerpo. Eleva tu belleza.</p>
+    <p class="copy">
+      © 2026 MG Activewear Spa - Todos los derechos reservados | Panamá
+    </p>
+
+  </div>
+</footer>
+<script src="script.js"></script>
+
+<button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+style="position:fixed;bottom:20px;left:20px;padding:10px 14px;
+background:black;color:white;border:none;border-radius:50%;
+cursor:pointer;font-weight:bold;">
+↑
+</button>
 </body>
 </html>
+
