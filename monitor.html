@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Pedidos</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="monitor.css">
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <main class="page">
+  <div class="toolbar">
+    <div class="brand">
+      <img class="brand-logo" src="img/MG ACTIVEWEAR SPA.png" alt="Logo MG Activewear Spa">
+      <div>
+        <h1>Monitor de Pedidos</h1>
+        <span class="brand-sub">MG Activewear Spa</span>
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <span id="apiStatus" class="status-dot"><span id="apiDot" class="dot"></span><span id="apiLabel">Sin conexión</span></span>
+      <span id="lastUpdate" class="muted">Sin actualizar</span>
+      <button id="refreshBtn" type="button">Actualizar</button>
+      <button id="exportBtn" type="button" class="btn-export">Exportar Excel</button>
+    </div>
+  </div>
+
+  <section class="kpi-grid">
+    <article class="kpi">
+      <div class="kpi-label">Pedidos Totales</div>
+      <div id="kpiTotalOrders" class="kpi-value">0</div>
+    </article>
+    <article class="kpi">
+      <div class="kpi-label">Ventas Totales</div>
+      <div id="kpiRevenue" class="kpi-value">$0.00</div>
+    </article>
+    <article class="kpi">
+      <div class="kpi-label">Ticket Promedio</div>
+      <div id="kpiAvg" class="kpi-value">$0.00</div>
+    </article>
+    <article class="kpi">
+      <div class="kpi-label">Listos Hoy</div>
+      <div id="kpiDoneToday" class="kpi-value">0</div>
+    </article>
+  </section>
+
+  <section class="legend">
+    <span class="legend-chip">Nuevo: pedido recién entrado</span>
+    <span class="legend-chip">En proceso: preparación activa</span>
+    <span class="legend-chip">Listo: pedido finalizado</span>
+  </section>
+
+  <div class="board">
+    <section id="nuevo" class="column">
+      <h2>Nuevos <span id="countNuevo" class="pill">0</span></h2>
+      <p class="empty">Sin pedidos</p>
+    </section>
+    <section id="proceso" class="column">
+      <h2>En Proceso <span id="countProceso" class="pill">0</span></h2>
+      <p class="empty">Sin pedidos</p>
+    </section>
+    <section id="listo" class="column">
+      <h2>Listos <span id="countListo" class="pill">0</span></h2>
+      <p class="empty">Sin pedidos</p>
+    </section>
+  </div>
+
+  <p id="errorBox" class="error" hidden></p>
+  </main>
+<script src="monitor.js"></script>
+</body>
+</html>
