@@ -76,8 +76,18 @@
 
   .logo-wordmark {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
     line-height: 1;
+  }
+  .logo-wordmark .brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+  .logo-wordmark .logo-text {
+    display: flex;
+    flex-direction: column;
   }
   .logo-wordmark .brand-main {
     font-family: 'Cormorant Garamond', serif;
@@ -490,6 +500,8 @@
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s;
     filter: saturate(0.85);
   }
+  .product-img-wrap .prod-img { display: none; }
+  .product-img-wrap .prod-img.active { display: block; }
   .product-card:hover .product-img-wrap img {
     transform: scale(1.06);
     filter: saturate(1);
@@ -1492,6 +1504,7 @@
     .float-btns { bottom: 1.5rem; right: 1.5rem; }
   }
   @media (max-width: 480px) {
+    .logo-wordmark .brand-logo { width: 36px; height: 36px; }
     .products-grid { grid-template-columns: 1fr; }
     .beauty-grid { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; }
@@ -1535,8 +1548,11 @@
 <!-- ═══════════════ HEADER ═══════════════ -->
 <header id="mainHeader">
   <div class="logo-wordmark">
-    <span class="brand-main">MG Activewear</span>
-    <span class="brand-sub">Spa · Panamá</span>
+    <img class="brand-logo" src="img/MG ACTIVEWEAR SPA.png" alt="MG Activewear Spa">
+    <div class="logo-text">
+      <span class="brand-main">MG Activewear</span>
+      <span class="brand-sub">Spa · Panamá</span>
+    </div>
   </div>
   <nav>
     <a href="#fitness-section">Ropa Fitness</a>
@@ -1646,7 +1662,9 @@
   <div class="product-card" data-category="fitness" data-price="110">
     <div class="product-img-wrap">
       <span class="product-tag">Premium</span>
-      <img class="prod-img" src="img/Faja blanca.png" onerror="this.src='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80'" alt="Cinturilla Reloj de Arena">
+      <img class="prod-img active" src="img/Faja blanca.png" onerror="this.src='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80'" alt="Cinturilla Reloj de Arena">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Cinturilla Reloj de Arena - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4?auto=format&fit=crop&w=600&q=80" alt="Cinturilla Reloj de Arena - 3">
       <div class="product-nav">
         <button onclick="prevImg(this)" aria-label="Prev">◀</button>
         <button onclick="nextImg(this)" aria-label="Next">▶</button>
@@ -1671,7 +1689,9 @@
   <!-- Faja Larga -->
   <div class="product-card" data-category="fitness" data-price="110">
     <div class="product-img-wrap">
-      <img class="prod-img" src="img/faja larga .png" onerror="this.src='https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80'" alt="Faja Larga">
+      <img class="prod-img active" src="img/faja larga .png" onerror="this.src='https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80'" alt="Faja Larga">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Faja Larga - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Faja Larga - 3">
       <div class="product-nav">
         <button onclick="prevImg(this)" aria-label="Prev">◀</button>
         <button onclick="nextImg(this)" aria-label="Next">▶</button>
@@ -1696,7 +1716,13 @@
   <!-- Short Faja -->
   <div class="product-card" data-category="fitness" data-price="65">
     <div class="product-img-wrap">
-      <img class="prod-img" src="img/Short Faja.png" onerror="this.src='https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80'" alt="Short Faja">
+      <img class="prod-img active" src="img/Short Faja.png" onerror="this.src='https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80'" alt="Short Faja">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Short Faja - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Short Faja - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Shorts</div>
@@ -1717,7 +1743,13 @@
   <!-- Short Sculpt -->
   <div class="product-card" data-category="fitness" data-price="38">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Shorts</div>
@@ -1738,7 +1770,13 @@
   <!-- Top Seamless -->
   <div class="product-card" data-category="fitness" data-price="42">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4?auto=format&fit=crop&w=600&q=80" alt="Top Seamless">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4?auto=format&fit=crop&w=600&q=80" alt="Top Seamless">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Top Seamless - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Top Seamless - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Tops</div>
@@ -1760,7 +1798,13 @@
   <div class="product-card" data-category="fitness" data-price="70">
     <div class="product-img-wrap">
       <span class="product-tag new-tag">Nuevo</span>
-      <img class="prod-img" src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Hoodies</div>
@@ -1781,7 +1825,13 @@
   <!-- Set Deportivo -->
   <div class="product-card" data-category="fitness" data-price="74">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Sets</div>
@@ -1802,7 +1852,13 @@
   <!-- Leggings Cintura Alta -->
   <div class="product-card" data-category="fitness" data-price="55">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Leggings</div>
@@ -1823,7 +1879,13 @@
   <!-- Top Deportivo Seamless -->
   <div class="product-card" data-category="fitness" data-price="34">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Tops</div>
@@ -1844,7 +1906,13 @@
   <!-- Chaqueta Fitness -->
   <div class="product-card" data-category="fitness" data-price="47">
     <div class="product-img-wrap">
-      <img class="prod-img" src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness">
+      <img class="prod-img active" src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness - 2">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness - 3">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
     </div>
     <div class="product-body">
       <div class="product-category-tag">Chaquetas</div>
@@ -2348,22 +2416,35 @@
     el.classList.add('active');
   }
 
+  function initProductImages() {
+    document.querySelectorAll('.product-img-wrap').forEach(wrap => {
+      const imgs = wrap.querySelectorAll('.prod-img');
+      if (!imgs.length) return;
+      const hasActive = Array.from(imgs).some(img => img.classList.contains('active'));
+      if (!hasActive) imgs[0].classList.add('active');
+    });
+  }
+
   // ─── IMAGE NAV ───
   function nextImg(btn) {
     const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
-    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img') : null;
     if (!imgs || imgs.length < 2) return;
-    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
-    imgs.forEach(i => i.style.display = 'none');
-    imgs[(cur + 1) % imgs.length].style.display = 'block';
+    const list = Array.from(imgs);
+    let cur = list.findIndex(i => i.classList.contains('active'));
+    if (cur === -1) cur = 0;
+    list[cur].classList.remove('active');
+    list[(cur + 1) % list.length].classList.add('active');
   }
   function prevImg(btn) {
     const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
-    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img') : null;
     if (!imgs || imgs.length < 2) return;
-    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
-    imgs.forEach(i => i.style.display = 'none');
-    imgs[(cur - 1 + imgs.length) % imgs.length].style.display = 'block';
+    const list = Array.from(imgs);
+    let cur = list.findIndex(i => i.classList.contains('active'));
+    if (cur === -1) cur = 0;
+    list[cur].classList.remove('active');
+    list[(cur - 1 + list.length) % list.length].classList.add('active');
   }
 
   // ─── FILTER & SEARCH ───
@@ -2445,6 +2526,8 @@
     document.getElementById('satHighlight').selectedIndex = 0;
   }
 
+  initProductImages();
+
   // ─── BACK TO TOP ───
   window.addEventListener('scroll', () => {
     const btn = document.getElementById('backTop');
@@ -2473,6 +2556,5 @@
 </script>
 </body>
 </html>
-
 
 
