@@ -1,652 +1,2478 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MG Activewear Spa — Empodera Tu Cuerpo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<title>MG ACTIVEWEAR SPA</title>
+  :root {
+    --ink: #1a1008;
+    --warm-black: #0f0a05;
+    --cream: #f7f2eb;
+    --sand: #e8dfd0;
+    --bronze: #c9965a;
+    --bronze-light: #e8b87a;
+    --blush: #e8c4b0;
+    --rose: #c4877a;
+    --white: #fdfaf6;
+    --muted: #7a6e62;
+    --card-bg: #fff9f3;
+    --radius: 2px;
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --page-pad: clamp(1.2rem, 3vw, 4rem);
+    --content-max: 1200px;
+    --content-wide: 1400px;
+  }
 
-<meta name="description" content="MG Activewear Spa - Ropa fitness premium y productos de belleza en Panamá. Empodera tu cuerpo. Eleva tu belleza.">
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { display: block; max-width: 100%; }
+  button, input, select, textarea { font: inherit; }
+  [id] { scroll-margin-top: 96px; }
 
-<meta property="og:title" content="MG Activewear Spa">
-<meta property="og:description" content="Ropa fitness premium y belleza en Panamá.">
-<meta property="og:image" content="img/MG ACTIVEWEAR SPA.png">
-<meta property="og:type" content="website">
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--bronze); border-radius: 2px; }
 
-<link rel="icon" type="image/png" href="img/MG ACTIVEWEAR SPA.png">
-<link rel="apple-touch-icon" href="img/MG ACTIVEWEAR SPA.png">
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
 
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem var(--page-pad);
+    background: rgba(247, 242, 235, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 150, 90, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .logo-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-wordmark .brand-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo-wordmark .brand-sub {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    color: var(--bronze);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  nav {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  nav a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition);
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--bronze);
+    transition: width var(--transition);
+  }
+  nav a:hover { color: var(--bronze); }
+  nav a:hover::after { width: 100%; }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background var(--transition);
+    border-radius: var(--radius);
+  }
+  .cart-btn:hover { background: var(--bronze); }
+  .cart-count {
+    background: var(--bronze);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+  }
+  .cart-btn:hover .cart-count { background: var(--ink); }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh;
+    min-height: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(5.5rem, 10vw, 7rem) var(--page-pad) clamp(4rem, 6vw, 6rem);
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--bronze);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 5.5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.35s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--bronze);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.65s forwards;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+    padding: 1rem 2.2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform 0.2s;
+    border-radius: var(--radius);
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--bronze); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    padding: 1rem 2.2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    cursor: pointer;
+    transition: all var(--transition);
+    border-radius: var(--radius);
+    display: inline-block;
+  }
+  .btn-outline:hover {
+    background: var(--ink);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(201, 150, 90, 0.2);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+    background: var(--warm-black);
+    overflow: hidden;
+  }
+
+  .hero-image-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) saturate(0.8);
+    transition: filter 0.5s;
+  }
+  .hero-img:hover { filter: brightness(0.9) saturate(1); }
+
+  .hero-img-1 { grid-column: 1; grid-row: 1 / 3; }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,150,90,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    background: rgba(247, 242, 235, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--bronze);
+  }
+  .hero-badge-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hero-badge-sub {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-top: 2px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--ink);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 18s linear infinite;
+  }
+  .marquee-item {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bronze-light);
+    padding: 0 3rem;
+  }
+  .marquee-dot {
+    color: var(--bronze);
+    padding: 0 0.5rem;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    text-align: center;
+    padding: clamp(3.5rem, 6vw, 5rem) var(--page-pad) clamp(2.5rem, 5vw, 3.5rem);
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .section-eyebrow::before,
+  .section-eyebrow::after {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--bronze);
+    opacity: 0.5;
+  }
+  .section-title-lg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .section-title-lg em {
+    font-style: italic;
+    color: var(--bronze);
+  }
+
+  /* ── CATALOG CONTROLS ── */
+  .catalog-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 var(--page-pad) 2.5rem;
+    flex-wrap: wrap;
+    max-width: var(--content-wide);
+    margin: 0 auto;
+  }
+  .catalog-controls select,
+  .catalog-controls input {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(201,150,90,0.3);
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color var(--transition);
+    cursor: pointer;
+  }
+  .catalog-controls select:focus,
+  .catalog-controls input:focus { border-color: var(--bronze); }
+  .catalog-controls input { min-width: 220px; }
+
+  /* ── PRODUCT GRID ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--sand);
+    padding: 0 var(--page-pad) 1.5px;
+    margin: 0 auto 5rem;
+    max-width: var(--content-wide);
+  }
+
+  .product-card {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+  .product-card:hover { z-index: 2; }
+  .product-card,
+  .beauty-card,
+  .arrival-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--sand);
+  }
+  .product-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s;
+    filter: saturate(0.85);
+  }
+  .product-card:hover .product-img-wrap img {
+    transform: scale(1.06);
+    filter: saturate(1);
+  }
+
+  .product-tag {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    background: var(--ink);
+    color: var(--bronze-light);
+    border-radius: var(--radius);
+    z-index: 2;
+  }
+  .product-tag.sale { background: var(--rose); color: white; }
+  .product-tag.new-tag { background: var(--bronze); color: white; }
+
+  .product-nav {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .product-card:hover .product-nav { opacity: 1; }
+  .product-nav button {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(247,242,235,0.9);
+    color: var(--ink);
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+  }
+  .product-nav button:hover { background: var(--bronze); color: white; }
+
+  .product-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-category-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.3rem;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-price-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .product-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .color-swatches {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .swatch:hover,
+  .swatch.active {
+    border-color: var(--bronze);
+    transform: scale(1.15);
+  }
+
+  .product-footer {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: auto;
+  }
+  .size-select {
+    flex: 1;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .size-select:focus { border-color: var(--bronze); }
+
+  .add-btn {
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 0.65rem 1.2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    white-space: nowrap;
+    flex: 1.5;
+  }
+  .add-btn:hover { background: var(--bronze); transform: translateY(-1px); }
+  .add-btn:active { transform: translateY(0); }
+
+  /* ── BEAUTY SECTION ── */
+  .beauty-section { background: var(--warm-black); padding: 5rem var(--page-pad); margin-bottom: 5rem; }
+  .beauty-section .section-eyebrow { color: var(--bronze-light); }
+  .beauty-section .section-title-lg { color: var(--white); }
+  .beauty-section .section-title-lg em { color: var(--bronze-light); }
+  .beauty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5px;
+    background: rgba(255,255,255,0.05);
+    padding: 0 0 1.5px;
+    max-width: var(--content-wide);
+    margin: 0 auto;
+  }
+  .beauty-card {
+    background: #1a140c;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+  .beauty-img-wrap {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #120e08;
+  }
+  .beauty-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease, filter 0.4s;
+    filter: brightness(0.8) saturate(0.7);
+  }
+  .beauty-card:hover .beauty-img-wrap img {
+    transform: scale(1.08);
+    filter: brightness(0.95) saturate(0.9);
+  }
+  .beauty-body { padding: 1.2rem 1.4rem 1.4rem; }
+  .beauty-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .beauty-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--sand);
+    margin-bottom: 0.4rem;
+  }
+  .beauty-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--bronze-light);
+    margin-bottom: 0.8rem;
+  }
+  .beauty-add-btn {
+    width: 100%;
+    background: transparent;
+    color: var(--bronze-light);
+    border: 1px solid rgba(201,150,90,0.4);
+    padding: 0.65rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+    margin-top: auto;
+  }
+  .beauty-add-btn:hover {
+    background: var(--bronze);
+    border-color: var(--bronze);
+    color: white;
+  }
+  .stock-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(196, 135, 122, 0.9);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius);
+  }
+
+  /* ── BEST SELLERS ── */
+  .bestsellers { padding: 0 var(--page-pad) 5rem; }
+  .bestsellers-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 1.5px;
+    background: var(--sand);
+    margin: 0 auto 1.5px;
+    max-width: var(--content-wide);
+  }
+  .bs-card { background: var(--white); overflow: hidden; position: relative; }
+  .bs-card-main { grid-row: 1; }
+  .bs-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 400px;
+    transition: transform 0.7s ease, filter 0.4s;
+    filter: saturate(0.8);
+  }
+  .bs-card:hover .bs-img { transform: scale(1.04); filter: saturate(1); }
+  .bs-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(26,16,8,0.85));
+    padding: 3rem 1.8rem 1.8rem;
+    color: var(--white);
+  }
+  .bs-tag {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze-light);
+    margin-bottom: 0.4rem;
+  }
+  .bs-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .bs-price { font-size: 1.1rem; font-weight: 600; color: var(--bronze-light); }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(201,150,90,0.2);
+    border-bottom: 1px solid rgba(201,150,90,0.2);
+    margin: 0 auto 5rem;
+    max-width: var(--content-wide);
+    padding-inline: var(--page-pad);
+  }
+  .trust-item {
+    padding: 2rem;
+    text-align: center;
+    border-right: 1px solid rgba(201,150,90,0.2);
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+  .trust-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .trust-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── NEW ARRIVALS ── */
+  .arrivals { padding: 0 var(--page-pad) 5rem; }
+  .arrivals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--sand);
+    max-width: var(--content-wide);
+    margin: 0 auto;
+  }
+  .arrival-card {
+    background: var(--cream);
+    overflow: hidden;
+    position: relative;
+  }
+  .arrival-img {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease, filter 0.4s;
+    filter: saturate(0.75);
+  }
+  .arrival-card:hover .arrival-img { transform: scale(1.05); filter: saturate(1); }
+  .arrival-body {
+    padding: 1.4rem 1.6rem 1.8rem;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .arrival-badge {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    background: var(--bronze);
+    color: white;
+    border-radius: 20px;
+  }
+  .arrival-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .arrival-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+  .arrival-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--bronze);
+    margin-top: auto;
+  }
+
+  /* ── PAYMENT METHODS ── */
+  .payments-section {
+    background: var(--sand);
+    padding: 3rem var(--page-pad);
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .payments-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .payments-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .payment-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--white);
+    border: 1px solid rgba(201,150,90,0.25);
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 0 var(--page-pad) 5rem; max-width: 900px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid rgba(201,150,90,0.2);
+    overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 1.4rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  .faq-item summary:hover { color: var(--bronze); }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--bronze);
+    transition: transform 0.3s;
+    font-weight: 300;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    padding: 0 0 1.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section {
+    background: var(--ink);
+    padding: 5rem var(--page-pad);
+    margin-bottom: 5rem;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    background: rgba(255,255,255,0.05);
+  }
+  .testi-card {
+    background: #1a140c;
+    padding: 2.5rem;
+  }
+  .testi-stars { color: var(--bronze-light); font-size: 0.75rem; margin-bottom: 1.2rem; letter-spacing: 0.1em; }
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .testi-author {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    padding: 5rem var(--page-pad);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 5rem;
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+  }
+  .about-text-block { }
+  .about-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .about-lead em { font-style: italic; color: var(--bronze); }
+  .about-body {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 2rem;
+  }
+  .about-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .about-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7);
+  }
+  .about-accent {
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 120px; height: 120px;
+    border: 2px solid var(--bronze);
+    opacity: 0.3;
+  }
+
+  /* ── MAP & SATISFACTION ── */
+  .location-section {
+    padding: 0 var(--page-pad) 5rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .map-card {
+    overflow: hidden;
+    border: 1px solid rgba(201,150,90,0.2);
+    border-radius: 2px;
+  }
+  .map-card iframe {
+    width: 100%;
+    height: 350px;
+    display: block;
+    border: none;
+    filter: saturate(0.6) brightness(0.95);
+  }
+  .map-link {
+    display: block;
+    padding: 1rem 1.4rem;
+    background: var(--sand);
+    color: var(--bronze);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: background 0.2s;
+  }
+  .map-link:hover { background: var(--bronze); color: white; }
+
+  .satisfaction-form {
+    background: var(--white);
+    padding: 2.5rem;
+    border: 1px solid rgba(201,150,90,0.15);
+  }
+  .satisfaction-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .satisfaction-form p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .form-field {
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.82rem;
+    border: 1px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .form-field:focus { border-color: var(--bronze); background: var(--white); }
+  .form-submit {
+    width: 100%;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 0.85rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: background 0.3s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--bronze); }
+  .form-msg {
+    font-size: 0.78rem;
+    color: var(--bronze);
+    margin-top: 0.8rem;
+    min-height: 1.2em;
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--warm-black);
+    padding: 4rem var(--page-pad);
+    border-top: 1px solid rgba(201,150,90,0.15);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(201,150,90,0.1);
+  }
+  .footer-brand .brand-main { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand); }
+  .footer-brand .brand-sub { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bronze); margin-top: 3px; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.82rem; color: rgba(232,223,208,0.6); line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--bronze); margin-bottom: 1.2rem; }
+  .footer-col a, .footer-col p { display: block; font-size: 0.8rem; color: rgba(232,223,208,0.6); text-decoration: none; margin-bottom: 0.5rem; line-height: 1.6; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--bronze-light); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(232,223,208,0.35);
+    letter-spacing: 0.05em;
+  }
+  .social-links { display: flex; gap: 1rem; }
+  .social-link {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(201,150,90,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: var(--bronze);
+  }
+  .social-link:hover { background: var(--bronze); border-color: var(--bronze); color: white; }
+  .social-link svg { width: 14px; height: 14px; }
+
+  /* ── FLOAT BUTTONS ── */
+  .float-btns {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    z-index: 900;
+  }
+  .float-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .float-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .float-btn.whatsapp { background: #25D366; }
+  .float-btn.instagram { background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+  .float-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  .back-top {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 42px; height: 42px;
+    background: var(--ink);
+    color: var(--bronze-light);
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 900;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .back-top.visible { opacity: 1; }
+  .back-top:hover { background: var(--bronze); }
+
+  /* ── CART DRAWER ── */
+  .cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,10,5,0.5);
+    z-index: 1050;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .cart-backdrop.open { opacity: 1; pointer-events: all; }
+
+  .cart-drawer {
+    position: fixed;
+    top: 0; right: 0;
+    width: min(460px, 95vw);
+    height: 100vh;
+    background: var(--white);
+    z-index: 1100;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -20px 0 60px rgba(0,0,0,0.15);
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 2rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .cart-drawer-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .cart-drawer-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.05em; }
+  .cart-close-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--sand);
+    background: transparent;
+    color: var(--ink);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .cart-close-btn:hover { background: var(--ink); color: white; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+  .cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--sand);
+    align-items: flex-start;
+    animation: fadeUp 0.3s ease forwards;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+  .cart-item-detail { font-size: 0.72rem; color: var(--muted); }
+  .cart-item-price { font-size: 0.95rem; font-weight: 700; color: var(--bronze); margin-top: 0.5rem; }
+  .cart-item-remove {
+    background: none; border: none;
+    color: var(--muted); font-size: 1rem;
+    cursor: pointer; padding: 2px;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+  .cart-item-remove:hover { color: var(--rose); }
+  .cart-footer {
+    padding: 1.5rem 2rem 2rem;
+    border-top: 1px solid var(--sand);
+  }
+  .cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .cart-total-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  .cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--ink); }
+  .cart-cta-grid { display: grid; gap: 0.6rem; }
+  .checkout-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: all 0.2s;
+  }
+  .checkout-btn.primary { background: var(--ink); color: white; }
+  .checkout-btn.primary:hover { background: var(--bronze); }
+  .checkout-btn.wa { background: #25D366; color: white; }
+  .checkout-btn.wa:hover { background: #1da851; }
+  .checkout-btn.ig { background: linear-gradient(135deg, #f09433,#e6683c,#dc2743,#cc2366); color: white; }
+  .checkout-btn.ig:hover { opacity: 0.9; }
+  .cart-clear {
+    background: none; border: none;
+    font-size: 0.7rem; color: var(--muted);
+    cursor: pointer; width: 100%; text-align: center;
+    padding: 0.5rem; margin-top: 0.5rem;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+    font-family: 'Outfit', sans-serif;
+  }
+  .cart-clear:hover { color: var(--rose); }
+  .cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1rem;
+    color: var(--muted);
+  }
+  .cart-empty-icon { font-size: 3rem; opacity: 0.4; }
+  .cart-empty-text { font-size: 0.85rem; letter-spacing: 0.05em; }
+
+  /* ── CHECKOUT MODAL ── */
+  .checkout-overlay {
+    position: fixed; inset: 0;
+    background: rgba(15,10,5,0.7);
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(6px);
+  }
+  .checkout-overlay.open { opacity: 1; pointer-events: all; }
+  .checkout-modal {
+    background: var(--white);
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 4px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .checkout-overlay.open .checkout-modal { transform: translateY(0); }
+  .checkout-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 2rem 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--sand);
+  }
+  .checkout-modal-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .checkout-modal-header p { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .checkout-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+  }
+  .checkout-summary-col {
+    background: var(--cream);
+    padding: 2rem 2rem;
+    border-right: 1px solid var(--sand);
+  }
+  .checkout-summary-col h3 {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.2rem;
+  }
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(201,150,90,0.15);
+    font-size: 0.82rem;
+  }
+  .summary-item-name { color: var(--ink); font-weight: 500; max-width: 140px; }
+  .summary-item-price { color: var(--bronze); font-weight: 600; }
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .checkout-form-col { padding: 2rem 2.5rem; }
+  .checkout-form-col h3 {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 1.5rem;
+  }
+  .checkout-confirm-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    background: var(--ink);
+    color: white;
+    border: none;
+    padding: 1.1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: background 0.3s;
+  }
+  .checkout-confirm-btn:hover { background: var(--bronze); }
+  .checkout-msg {
+    font-size: 0.8rem;
+    color: var(--bronze);
+    text-align: center;
+    min-height: 1.4em;
+    margin-top: 0.8rem;
+    padding: 0.5rem;
+    background: rgba(201,150,90,0.08);
+    border-radius: var(--radius);
+    display: none;
+  }
+  .checkout-msg.show { display: block; }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 2px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    header { padding: 1.1rem var(--page-pad); }
+    .hero { grid-template-columns: 1fr; height: auto; }
+    .hero-left { padding: 6.5rem var(--page-pad) 4rem; }
+    .hero-right { height: 60vw; }
+    .bestsellers-grid { grid-template-columns: 1fr 1fr; }
+    .about-section { grid-template-columns: 1fr; padding: 4rem var(--page-pad); gap: 3rem; }
+    .location-section { grid-template-columns: 1fr; padding: 0 var(--page-pad) 4rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .trust-strip { grid-template-columns: 1fr 1fr; }
+    .trust-item { border-bottom: 1px solid rgba(201,150,90,0.2); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .arrivals-grid { grid-template-columns: 1fr 1fr; }
+    .checkout-modal-body { grid-template-columns: 1fr; }
+    .checkout-summary-col { border-right: none; border-bottom: 1px solid var(--sand); }
+  }
+  @media (max-width: 768px) {
+    header { padding: 1rem var(--page-pad); }
+    nav { display: none; }
+    .hero-left { padding: 6rem var(--page-pad) 3rem; }
+    .hero-stats { gap: 1.5rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--sand); }
+    .catalog-controls { padding: 0 var(--page-pad) 2rem; gap: 0.6rem; }
+    .catalog-controls input { min-width: 160px; }
+    .beauty-grid { grid-template-columns: repeat(2, 1fr); }
+    .bestsellers-grid { grid-template-columns: 1fr; }
+    .arrivals-grid { grid-template-columns: 1fr; }
+    .trust-strip { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; }
+    .about-section { padding: 4rem var(--page-pad); }
+    .faq-section { padding: 0 var(--page-pad) 4rem; }
+    .section-header { padding: 4rem var(--page-pad) 2.5rem; }
+    .float-btns { bottom: 1.5rem; right: 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .beauty-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .payments-section { padding: 2.5rem var(--page-pad); }
+    .payments-grid { gap: 0.8rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--bronze-light);
+    padding: 0.8rem 1.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-radius: 30px;
+    z-index: 2000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    white-space: nowrap;
+    border: 1px solid rgba(201,150,90,0.3);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
 </head>
-<body data-api-base="{{API_BASE_URL}}">
-<header>
-<div class="logo-container">
-<img src="img/MG ACTIVEWEAR SPA.png" alt="MG Activewear Logo" class="logo">
-</div>
-<nav>
-<a href="#" onclick="goToCategory('fitness'); return false;">Ropa Fitness</a>
-<a href="#" onclick="goToCategory('beauty'); return false;">Belleza</a>
-<a href="#masVendidos">Nuevos</a>
-<a href="#oferta">Ofertas</a>
-</nav>
-<button class="cart-toggle" onclick="toggleCart()">🛍️ CANASTA <span class="cart-count" id="cartCount">0</span></button>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header id="mainHeader">
+  <div class="logo-wordmark">
+    <span class="brand-main">MG Activewear</span>
+    <span class="brand-sub">Spa · Panamá</span>
+  </div>
+  <nav>
+    <a href="#fitness-section">Ropa Fitness</a>
+    <a href="#beauty-section">Belleza</a>
+    <a href="#nuevas-llegadas">Nuevos</a>
+    <a href="#beauty-section">Ofertas</a>
+  </nav>
+  <div class="header-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      Canasta
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
 </header>
 
-<section class="hero">
-<div class="hero-content">
-<span class="hero-kicker">Activewear & Beauty</span>
-<h2>Empodera Tu Cuerpo. Eleva Tu Belleza.</h2>
-<p class="hero-sub">Ropa fitness premium y cuidado de la piel con entregas en Panamá.</p>
-<div class="hero-actions">
-<a class="btn-primary" href="#fitness">Ver colección</a>
-<a class="btn-ghost" href="#oferta">Ver ofertas</a>
-</div>
-</div>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Activewear & Beauty</span>
+    <h1 class="hero-title">
+      Empodera<br>Tu <em>Cuerpo.</em><br>Eleva Tu<br><em>Belleza.</em>
+    </h1>
+    <p class="hero-desc">Ropa fitness premium y cuidado de la piel diseñados para la mujer que se mueve con intención. Entregas en toda Panamá.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#fitness-section">Ver colección</a>
+      <a class="btn-outline" href="#beauty-section">Belleza</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clientas felices</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Productos premium</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">PTY</div>
+        <div class="stat-label">Entrega en Panamá</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-grid">
+      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&q=80" class="hero-img hero-img-1" alt="Fitness woman">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" class="hero-img" alt="Activewear">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" class="hero-img" alt="Beauty">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <div class="hero-badge-title">Nueva colección '26</div>
+      <div class="hero-badge-sub">Flor Plaza · Panamá</div>
+    </div>
+  </div>
 </section>
 
-<h2 class="section-title">Ropa Fitness Mujer</h2>
-
-<!-- FILTROS Y ORDEN -->
-<div class="catalog-controls">  
-<select id="filterCategory" onchange="filterProducts()">
-<option value="all">Todas las categorías</option>
-<option value="fitness">Fitness</option>
-<option value="beauty">Belleza</option>
-</select>
-
-<input
-type="search"
-id="productSearch"
-class="product-search"
-placeholder="Buscar producto..."
-oninput="searchProducts()">
-
-<select id="sortPrice" onchange="sortProducts()">
-<option value="default">Ordenar</option>
-<option value="low">Precio: Menor a Mayor</option>
-<option value="high">Precio: Mayor a Menor</option>
-</select>
-</div>
-<section class="products" id="fitness">
-<div class="card" data-category="fitness" data-price="110">
-  <div class="product-images">
-    <img src="img/Faja blanca.png" class="active" alt="Cinturilla reloj de arena color blanco">
-    <img src="img/Faja blanca 1.png" alt="Cinturilla reloj de arena vista alterna blanco">
-    <img src="img/Faja blanca 2.png" alt="Cinturilla reloj de arena detalle blanco">
-    <img src="img/Faja Rosa .png" alt="Cinturilla reloj de arena color rosa">
-    <img src="img/Faja Rosa 1.png" alt="Cinturilla reloj de arena vista alterna rosa">
-    <img src="img/Faja Roja.png" alt="Cinturilla reloj de arena color rojo">
-    <img src="img/Faja Roja 1.png" alt="Cinturilla reloj de arena vista alterna rojo">
-  </div>
-  <h3>Cinturilla Reloj de Arena</h3>
-  <p>$110</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-
-  <!-- Selector de colores -->
-  <div class="color-picker">
-    <span class="color" style="background:#ee8d8d" onclick="changeImage(this, 0); selectColor(this, 'Rosa')"></span>
-    <span class="color" style="background:#f5f5dc" onclick="changeImage(this, 1); selectColor(this, 'Beige')"></span>
-    <span class="color" style="background:#ff0000" onclick="changeImage(this, 2); selectColor(this, 'Rojo')"></span>
-</div>
-  
-  <div class="size-add-row">
-  <select id="sizeCinturilla">
-<option value="S">S</option>
-<option value="M">M</option>
-<option value="L">L</option>
-<option value="XL">XL</option>
-</select>
-  <button onclick="addToCartFromCard(this, 'Cinturilla Reloj de Arena',110)">Añadir</button>
+<!-- ═══════════════ MARQUEE ═══════════════ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Ropa Fitness Premium</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Entregas en Panamá</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Belleza & Skincare</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Pagos Seguros</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Yappy · Tarjeta · Transferencia</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Atención por WhatsApp</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Ropa Fitness Premium</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Entregas en Panamá</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Belleza & Skincare</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Pagos Seguros</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Yappy · Tarjeta · Transferencia</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Atención por WhatsApp</span><span class="marquee-dot">✦</span>
   </div>
 </div>
-<div class="card" data-category="fitness" data-price="110">
-<div class="product-images">
-  <img src="img/faja larga .png" class="active" alt="Faja larga color beige">
-  <img src="img/Faja larga 1 .png" alt="Faja larga color negro">
-  <img src="img/Faja Larga 2.png" alt="Faja larga color rosa">
-</div>
-<h3>Faja Larga</h3>
-<p>$110</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="changeImage(this, 0); selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#111111" onclick="changeImage(this, 1); selectColor(this, 'Negro')"></span>
-  <span class="color" style="background:#b76e79" onclick="changeImage(this, 2); selectColor(this, 'Rosa')"></span>
-</div>
-<button onclick="addToCartFromCard(this, 'Faja Larga',110)">Añadir</button>
-</div>
-<div class="card" data-category="fitness" data-price="65">
-<img src="img/Short Faja.png" alt="Short Faja">
-<h3>Short Faja</h3>
-<p>$65</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
-</div>
-<div class="size-add-row">
-<select id="size2"><option>S</option><option>M</option><option>L</option></select>
-<button onclick="addToCartFromCard(this, 'Short Faja',65)">Añadir</button>
-</div>
-</div>
-<div class="card" data-category="fitness" data-price="38">
-<img src="https://images.unsplash.com/photo-1549062572-544a64fb0c56" alt="Short deportivo sculpt">
-<h3>Short Sculpt</h3>
-<p>$38</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#f0c9c9" onclick="selectColor(this, 'Rosa Claro')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeShortSculpt">
-<option value="S">S</option>
-<option value="M">M</option>
-<option value="L">L</option>
-<option value="XL">XL</option>
-</select>
-<button onclick="addToCartFromCard(this, 'Short Sculpt',38)">Añadir</button>
-</div>
-</div>
-<div class="card" data-category="fitness" data-price="42">
-<img src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4" alt="Top seamless deportivo">
-<h3>Top Seamless</h3>
-<p>$42</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#ffffff" onclick="selectColor(this, 'Blanco')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="size4"><option>S</option><option>M</option><option>L</option></select>
-<button onclick="addToCartFromCard(this, 'Top Seamless',42)">Añadir</button>
-</div>
+
+<!-- ═══════════════ TRUST STRIP ═══════════════ -->
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-icon">🚚</div><div class="trust-title">Envíos Rápidos</div><div class="trust-desc">En toda Panamá, coordinamos contigo</div></div>
+  <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-title">Pagos Seguros</div><div class="trust-desc">Tarjeta, Yappy, transferencia o efectivo</div></div>
+  <div class="trust-item"><div class="trust-icon">💬</div><div class="trust-title">Atención Directa</div><div class="trust-desc">Respondemos por WhatsApp al instante</div></div>
+  <div class="trust-item"><div class="trust-icon">🎁</div><div class="trust-title">Cambios Fáciles</div><div class="trust-desc">7 días con producto sin uso</div></div>
 </div>
 
-<div class="card" data-category="fitness" data-price="70">
-<img src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7" alt="Hoodie deportivo activewear">
-<h3>Hoodie Active</h3>
-<p>$70</p>
-<!-- Botones para pasar imágenes -->
-  <button class="prev" type="button" aria-label="Imagen anterior" onclick="prevImage(this)">◀</button>
-  <button class="next" type="button" aria-label="Imagen siguiente" onclick="nextImage(this)">▶</button>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeHoodie1"><option value="S">S</option><option value="M">M</option><option value="L">L</option></select>
-<button onclick="addToCartFromCard(this, 'Hoodie Active',70)">Añadir</button>
-</div>
+<!-- ═══════════════ FITNESS ═══════════════ -->
+<div class="section-header" id="fitness-section">
+  <div class="section-eyebrow">Colección Principal</div>
+  <h2 class="section-title-lg">Ropa Fitness <em>Mujer</em></h2>
 </div>
 
-<div class="card" data-category="fitness" data-price="74">
-<img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=900&q=80" alt="Set deportivo beige">
-<h3>Set Deportivo Beige</h3>
-<p>$74</p>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#d3b8a0" onclick="selectColor(this, 'Nude')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeSetBeige"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-<button onclick="addToCartFromCard(this, 'Set Deportivo Beige',74)">Añadir</button>
-</div>
-</div>
-
-<div class="card" data-category="fitness" data-price="55">
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80" alt="Leggings cintura alta">
-<h3>Leggings Cintura Alta</h3>
-<p>$55</p>
-<div class="color-picker">
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-  <span class="color" style="background:#5f4b45" onclick="selectColor(this, 'Chocolate')"></span>
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeLeggingsAlta"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-<button onclick="addToCartFromCard(this, 'Leggings Cintura Alta',55)">Añadir</button>
-</div>
+<div class="catalog-controls">
+  <select id="filterCategory" onchange="filterAndSearch()">
+    <option value="all">Todas las categorías</option>
+    <option value="fitness">Fitness</option>
+    <option value="beauty">Belleza</option>
+  </select>
+  <input type="search" id="productSearch" placeholder="Buscar producto..." oninput="filterAndSearch()">
+  <select id="sortPrice" onchange="filterAndSearch()">
+    <option value="default">Ordenar por precio</option>
+    <option value="low">Menor a mayor</option>
+    <option value="high">Mayor a menor</option>
+  </select>
 </div>
 
-<div class="card" data-category="fitness" data-price="34">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Top deportivo seamless">
-<h3>Top Deportivo Seamless</h3>
-<p>$34</p>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#f2c9cd" onclick="selectColor(this, 'Rosa Pálido')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeTopSeamless2"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-<button onclick="addToCartFromCard(this, 'Top Deportivo Seamless',34)">Añadir</button>
-</div>
-</div>
+<div class="products-grid" id="productsGrid">
 
-<div class="card" data-category="fitness" data-price="47">
-<img src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=900&q=80" alt="Chaqueta deportiva ligera">
-<h3>Chaqueta Fitness Ligera</h3>
-<p>$47</p>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Beige')"></span>
-  <span class="color" style="background:#8b5e3b" onclick="selectColor(this, 'Café')"></span>
-  <span class="color" style="background:#111111" onclick="selectColor(this, 'Negro')"></span>
-</div>
-<div class="size-add-row">
-<select id="sizeChaquetaLigera"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
-<button onclick="addToCartFromCard(this, 'Chaqueta Fitness Ligera',47)">Añadir</button>
-</div>
-</div>
+  <!-- Cinturilla Reloj de Arena -->
+  <div class="product-card" data-category="fitness" data-price="110">
+    <div class="product-img-wrap">
+      <span class="product-tag">Premium</span>
+      <img class="prod-img" src="img/Faja blanca.png" onerror="this.src='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80'" alt="Cinturilla Reloj de Arena">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Fajas & Cinturillas</div>
+      <div class="product-name">Cinturilla Reloj de Arena</div>
+      <div class="product-price-row"><span class="product-price">$110</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#ee8d8d" title="Rosa" onclick="selectSwatch(this,'Rosa')"></span>
+        <span class="swatch" style="background:#f5f5dc" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#ff4444" title="Rojo" onclick="selectSwatch(this,'Rojo')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Cinturilla Reloj de Arena',110)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faja Larga -->
+  <div class="product-card" data-category="fitness" data-price="110">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="img/faja larga .png" onerror="this.src='https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80'" alt="Faja Larga">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Fajas & Cinturillas</div>
+      <div class="product-name">Faja Larga</div>
+      <div class="product-price-row"><span class="product-price">$110</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#b76e79" title="Rosa" onclick="selectSwatch(this,'Rosa')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Faja Larga',110)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Short Faja -->
+  <div class="product-card" data-category="fitness" data-price="65">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="img/Short Faja.png" onerror="this.src='https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80'" alt="Short Faja">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Shorts</div>
+      <div class="product-name">Short Faja</div>
+      <div class="product-price-row"><span class="product-price">$65</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Short Faja',65)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Short Sculpt -->
+  <div class="product-card" data-category="fitness" data-price="38">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Shorts</div>
+      <div class="product-name">Short Sculpt</div>
+      <div class="product-price-row"><span class="product-price">$38</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#f0c9c9" title="Rosa Claro" onclick="selectSwatch(this,'Rosa Claro')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Short Sculpt',38)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Seamless -->
+  <div class="product-card" data-category="fitness" data-price="42">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4?auto=format&fit=crop&w=600&q=80" alt="Top Seamless">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Tops</div>
+      <div class="product-name">Top Seamless</div>
+      <div class="product-price-row"><span class="product-price">$42</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#eeeeee;border:1px solid #ccc" title="Blanco" onclick="selectSwatch(this,'Blanco')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Top Seamless',42)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hoodie Active -->
+  <div class="product-card" data-category="fitness" data-price="70">
+    <div class="product-img-wrap">
+      <span class="product-tag new-tag">Nuevo</span>
+      <img class="prod-img" src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Hoodies</div>
+      <div class="product-name">Hoodie Active</div>
+      <div class="product-price-row"><span class="product-price">$70</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Hoodie Active',70)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Set Deportivo -->
+  <div class="product-card" data-category="fitness" data-price="74">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Sets</div>
+      <div class="product-name">Set Deportivo Beige</div>
+      <div class="product-price-row"><span class="product-price">$74</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#d3b8a0" title="Nude" onclick="selectSwatch(this,'Nude')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Set Deportivo Beige',74)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leggings Cintura Alta -->
+  <div class="product-card" data-category="fitness" data-price="55">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Leggings</div>
+      <div class="product-name">Leggings Cintura Alta</div>
+      <div class="product-price-row"><span class="product-price">$55</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#5f4b45" title="Chocolate" onclick="selectSwatch(this,'Chocolate')"></span>
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Leggings Cintura Alta',55)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Deportivo Seamless -->
+  <div class="product-card" data-category="fitness" data-price="34">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Tops</div>
+      <div class="product-name">Top Deportivo Seamless</div>
+      <div class="product-price-row"><span class="product-price">$34</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#f2c9cd" title="Rosa Pálido" onclick="selectSwatch(this,'Rosa Pálido')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Top Deportivo Seamless',34)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chaqueta Fitness -->
+  <div class="product-card" data-category="fitness" data-price="47">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Chaquetas</div>
+      <div class="product-name">Chaqueta Fitness Ligera</div>
+      <div class="product-price-row"><span class="product-price">$47</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Chaqueta Fitness Ligera',47)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /products-grid -->
 
 
+<!-- ═══════════════ BEAUTY ═══════════════ -->
+<section class="beauty-section" id="beauty-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Skincare & Wellness</div>
+    <h2 class="section-title-lg">Productos de <em>Belleza</em></h2>
+  </div>
+
+  <div class="beauty-grid" style="padding:0 1.5px 1.5px">
+    <div class="beauty-card" data-category="beauty" data-price="30">
+      <span class="stock-badge">Solo 8 disponibles</span>
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Serum Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Serum Glow</div>
+        <div class="beauty-price">$30</div>
+        <button class="beauty-add-btn" onclick="addToCart('Serum Glow',30)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="28">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80" alt="Crema Reafirmante"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Crema Reafirmante</div>
+        <div class="beauty-price">$28</div>
+        <button class="beauty-add-btn" onclick="addToCart('Crema Reafirmante',28)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="48">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Kit Facial Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Kit Facial Glow</div>
+        <div class="beauty-price">$48</div>
+        <button class="beauty-add-btn" onclick="addToCart('Kit Facial Glow',48)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="34">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80" alt="Body Oil"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Body Oil Reafirmante</div>
+        <div class="beauty-price">$34</div>
+        <button class="beauty-add-btn" onclick="addToCart('Body Oil Reafirmante',34)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="26">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80" alt="Protector Solar Sport"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Protector Solar Sport</div>
+        <div class="beauty-price">$26</div>
+        <button class="beauty-add-btn" onclick="addToCart('Protector Solar Sport',26)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="29">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Mascarilla Detox"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Mascarilla Detox</div>
+        <div class="beauty-price">$29</div>
+        <button class="beauty-add-btn" onclick="addToCart('Mascarilla Detox',29)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="41">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" alt="Sérum Vitamina C+"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Sérum Vitamina C+</div>
+        <div class="beauty-price">$41</div>
+        <button class="beauty-add-btn" onclick="addToCart('Sérum Vitamina C+',41)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="38">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Exfoliante Body Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Exfoliante Body Glow</div>
+        <div class="beauty-price">$38</div>
+        <button class="beauty-add-btn" onclick="addToCart('Exfoliante Body Glow',38)">+ Añadir a canasta</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<h2 class="section-title">Productos de Belleza</h2>
-<p class="countdown-banner">Oferta por tiempo limitado · <span id="countdown">24h 00m 00s</span></p>
-<section class="products" id="oferta">
-<div class="card" data-category="beauty" data-price="30" data-stock="8">
-<span class="limited-stock">Solo 8 disponibles</span>
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Sérum facial glow">
-<h3>Serum Glow</h3>
-<p>$30</p>
-<button onclick="addToCart('Serum Glow',30)">Añadir</button>
+<!-- ═══════════════ MÁS VENDIDOS ═══════════════ -->
+<div class="section-header">
+  <div class="section-eyebrow">Top Picks</div>
+  <h2 class="section-title-lg">🔥 <em>Más</em> Vendidos</h2>
 </div>
-<div class="card" data-category="beauty" data-price="28">
-<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707" alt="Crema reafirmante corporal">
-<h3>Crema Reafirmante</h3>
-<p>$28</p>
-<button onclick="addToCart('Crema Reafirmante',28)">Añadir</button>
-</div>
-<div class="card" data-category="beauty" data-price="48">
-<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" alt="Kit facial glow cuidado de piel">
-<h3>Kit Facial Glow</h3>
-<p>$48</p>
-<button onclick="addToCart('Kit Facial Glow',48)">Añadir</button>
-</div>
-
-<div class="card" data-category="beauty" data-price="34">
-<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707" alt="Body oil reafirmante">
-<h3>Body Oil Reafirmante</h3>
-<p>$34</p>
-<button onclick="addToCart('Body Oil Reafirmante',34)">Añadir</button>
-</div>
-
-<div class="card" data-category="beauty" data-price="26">
-<img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30" alt="Protector solar sport">
-<h3>Protector Solar Sport</h3>
-<p>$26</p>
-<button onclick="addToCart('Protector Solar Sport',26)">Añadir</button>
-</div>
-
-<div class="card" data-category="beauty" data-price="29">
-<img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Mascarilla detox facial">
-<h3>Mascarilla Detox</h3>
-<p>$29</p>
-<button onclick="addToCart('Mascarilla Detox',29)">Añadir</button>
+<div class="bestsellers" style="padding:0 1.5px 1.5px">
+  <div class="bestsellers-grid" style="background:var(--sand);gap:1.5px">
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=900&q=80" alt="Leggings Sculpt Pro">
+      <div class="bs-overlay">
+        <div class="bs-tag">⭐ Más vendido</div>
+        <div class="bs-name">Leggings Sculpt Pro</div>
+        <div class="bs-price">$52</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Leggings Sculpt Pro',52)">+ Añadir</button>
+      </div>
+    </div>
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+      <div class="bs-overlay">
+        <div class="bs-tag">Favorita</div>
+        <div class="bs-name">Set Deportivo</div>
+        <div class="bs-price">$74</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Set Deportivo Beige',74)">+ Añadir</button>
+      </div>
+    </div>
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Kit Facial">
+      <div class="bs-overlay">
+        <div class="bs-tag">Belleza</div>
+        <div class="bs-name">Kit Facial Glow</div>
+        <div class="bs-price">$48</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Kit Facial Glow',48)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="card" data-category="beauty" data-price="32">
-<img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80" alt="Lip Oil hidratante">
-<h3>Lip Oil Hydrating</h3>
-<p>$32</p>
-<div class="color-picker">
-  <span class="color" style="background:#f4c2c2" onclick="selectColor(this, 'Rose')"></span>
-  <span class="color" style="background:#f5e6d3" onclick="selectColor(this, 'Nude')"></span>
-  <span class="color" style="background:#c97f6f" onclick="selectColor(this, 'Terracotta')"></span>
+<!-- ═══════════════ NUEVAS LLEGADAS ═══════════════ -->
+<div class="section-header" id="nuevas-llegadas">
+  <div class="section-eyebrow">Recién llegado</div>
+  <h2 class="section-title-lg">Nuevas <em>Llegadas</em></h2>
 </div>
-<div class="size-add-row">
-<select id="variantLipOil"><option>5 ml</option><option>10 ml</option></select>
-<button onclick="addToCartFromCard(this, 'Lip Oil Hydrating',32)">Añadir</button>
-</div>
-</div>
-
-<div class="card" data-category="beauty" data-price="36">
-<img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80" alt="Crema de día hidratante">
-<h3>Crema Día Hydralift</h3>
-<p>$36</p>
-<div class="color-picker">
-  <span class="color" style="background:#f5f0e6" onclick="selectColor(this, 'Piel Seca')"></span>
-  <span class="color" style="background:#e6dccf" onclick="selectColor(this, 'Piel Mixta')"></span>
-  <span class="color" style="background:#d6c5b5" onclick="selectColor(this, 'Piel Grasa')"></span>
-</div>
-<div class="size-add-row">
-<select id="variantCremaDia"><option>30 ml</option><option>50 ml</option></select>
-<button onclick="addToCartFromCard(this, 'Crema Día Hydralift',36)">Añadir</button>
-</div>
-</div>
-
-<div class="card" data-category="beauty" data-price="41">
-<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80" alt="Sérum vitamina C">
-<h3>Sérum Vitamina C+</h3>
-<p>$41</p>
-<div class="color-picker">
-  <span class="color" style="background:#ffd38a" onclick="selectColor(this, 'Glow')"></span>
-  <span class="color" style="background:#f4b183" onclick="selectColor(this, 'Repair')"></span>
-  <span class="color" style="background:#f7e4c0" onclick="selectColor(this, 'Sensitive')"></span>
-</div>
-<div class="size-add-row">
-<select id="variantSerumC"><option>20 ml</option><option>30 ml</option></select>
-<button onclick="addToCartFromCard(this, 'Sérum Vitamina C+',41)">Añadir</button>
-</div>
+<div class="arrivals" style="padding:0 1.5px 5rem">
+  <div class="arrivals-grid" style="background:var(--sand);gap:1.5px">
+    <div class="arrival-card">
+      <span class="arrival-badge">NEW</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Set Nude Flow">
+      <div class="arrival-body">
+        <div class="arrival-name">Set Nude Flow</div>
+        <div class="arrival-desc">Comodidad premium para entrenamiento o uso diario.</div>
+        <div class="arrival-price">$79</div>
+      </div>
+    </div>
+    <div class="arrival-card">
+      <span class="arrival-badge" style="background:var(--rose)">TREND</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=800&q=80" alt="Top Blush Motion">
+      <div class="arrival-body">
+        <div class="arrival-name">Top Blush Motion</div>
+        <div class="arrival-desc">Soporte suave con acabado elegante en tonos cálidos.</div>
+        <div class="arrival-price">$39</div>
+      </div>
+    </div>
+    <div class="arrival-card">
+      <span class="arrival-badge" style="background:var(--ink)">HOT</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Leggings Sand Sculpt">
+      <div class="arrival-body">
+        <div class="arrival-name">Leggings Sand Sculpt</div>
+        <div class="arrival-desc">Cintura alta moldeadora y tela anti-transparencia.</div>
+        <div class="arrival-price">$58</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="card" data-category="beauty" data-price="27">
-<img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=900&q=80" alt="Bruma facial refrescante">
-<h3>Bruma Facial Refresh</h3>
-<p>$27</p>
-<div class="color-picker">
-  <span class="color" style="background:#d8f0ef" onclick="selectColor(this, 'Aloe')"></span>
-  <span class="color" style="background:#f7d9d9" onclick="selectColor(this, 'Rose Water')"></span>
-  <span class="color" style="background:#ece3d3" onclick="selectColor(this, 'Chamomile')"></span>
-</div>
-<div class="size-add-row">
-<select id="variantBruma"><option>60 ml</option><option>120 ml</option></select>
-<button onclick="addToCartFromCard(this, 'Bruma Facial Refresh',27)">Añadir</button>
-</div>
-</div>
-
-<div class="card" data-category="beauty" data-price="38">
-<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Exfoliante corporal suave">
-<h3>Exfoliante Body Glow</h3>
-<p>$38</p>
-<div class="color-picker">
-  <span class="color" style="background:#f4ddc1" onclick="selectColor(this, 'Vainilla')"></span>
-  <span class="color" style="background:#d7b899" onclick="selectColor(this, 'Café')"></span>
-  <span class="color" style="background:#f1c9b7" onclick="selectColor(this, 'Rosa')"></span>
-</div>
-<div class="size-add-row">
-<select id="variantExfoliante"><option>200 g</option><option>350 g</option></select>
-<button onclick="addToCartFromCard(this, 'Exfoliante Body Glow',38)">Añadir</button>
-</div>
-</div>
-
-<div class="card" data-category="beauty" data-price="33">
-<img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=80" alt="Mascarilla hidratante nocturna">
-<h3>Mascarilla Nocturna Repair</h3>
-<p>$33</p>
-<div class="color-picker">
-  <span class="color" style="background:#d8d0f2" onclick="selectColor(this, 'Lavanda')"></span>
-  <span class="color" style="background:#f5e6d3" onclick="selectColor(this, 'Avena')"></span>
-  <span class="color" style="background:#cbe8d7" onclick="selectColor(this, 'Aloe')"></span>
-</div>
-<div class="size-add-row">
-<select id="variantMascarillaNoche"><option>50 ml</option><option>100 ml</option></select>
-<button onclick="addToCartFromCard(this, 'Mascarilla Nocturna Repair',33)">Añadir</button>
-</div>
-</div>
-
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section class="testimonials-section">
+  <div class="section-header" style="padding:0 2rem 3rem">
+    <div class="section-eyebrow" style="color:var(--bronze-light)">Nuestras Clientas</div>
+    <h2 class="section-title-lg" style="color:var(--white)">Lo Que <em>Dicen</em></h2>
+  </div>
+  <div class="testimonials-grid" style="padding:0 4rem">
+    <div class="testi-card">
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+      <div class="testi-text">"La calidad de las piezas es increíble, se adaptan perfecto y se ven espectacular. Ya hice mi segundo pedido."</div>
+      <div class="testi-author">— Valeria M., Panamá</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+      <div class="testi-text">"Atención súper rápida por WhatsApp, entrega puntual y los productos de belleza son exactamente lo que buscaba."</div>
+      <div class="testi-author">— Andrea S., Panamá</div>
+    </div>
+  </div>
 </section>
 
-<div class="cart" id="cart">
-<div class="cart-header">
-<div>
-<h2>Tu Canasta</h2>
-<p class="cart-sub">Revisa tus artículos antes de pagar</p>
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<div class="section-header">
+  <div class="section-eyebrow">Nuestra historia</div>
+  <h2 class="section-title-lg">Sobre <em>MG Activewear Spa</em></h2>
 </div>
-<button class="cart-close" onclick="toggleCart()" aria-label="Cerrar carrito">✕</button>
-</div>
-<div class="cart-meta" id="cartMeta">0 productos</div>
-<div id="cartItems"></div>
-<div class="total" id="total">Total: $0</div>
-<button class="checkout-clear" onclick="clearCart()">Vaciar carrito</button>
-<div class="checkout-actions">
-<button class="checkout" onclick="openCheckout()">Proceder al pago</button>
-<button class="checkout-alt" onclick="checkoutWhatsApp()">Finalizar por WhatsApp</button>
-<button class="checkout-ig" onclick="checkoutInstagram()">Finalizar por Instagram</button>
-</div>
-</div>
-
-<div class="checkout-panel" id="checkoutPanel" aria-hidden="true">
-<div class="checkout-card">
-<button class="checkout-close" onclick="closeCheckout()">✕</button>
-<h2>Pago Seguro</h2>
-<p class="checkout-subtitle">Completa tus datos para confirmar el pedido.</p>
-
-<div class="checkout-layout">
-<aside class="checkout-side">
-<h3>Resumen de compra</h3>
-<div id="checkoutSummary" class="checkout-summary"></div>
-</aside>
-<section class="checkout-main">
-<h3>Datos de envío y pago</h3>
-<div class="checkout-form">
-<label class="sr-only" for="customerName">Nombre completo</label>
-<input type="text" id="customerName" placeholder="Nombre completo">
-<label class="sr-only" for="customerEmail">Correo electrónico</label>
-<input type="email" id="customerEmail" placeholder="Correo electrónico">
-<label class="sr-only" for="customerPhone">Teléfono</label>
-<input type="tel" id="customerPhone" placeholder="Teléfono (requerido)">
-<label class="sr-only" for="customerAddress">Dirección de entrega</label>
-<input type="text" id="customerAddress" placeholder="Dirección de entrega">
-<label class="sr-only" for="paymentMethod">Método de pago</label>
-<select id="paymentMethod">
-<option value="">Método de pago</option>
-<option value="Tarjeta">Tarjeta</option>
-<option value="Yappy">Yappy</option>
-<option value="Transferencia">Transferencia bancaria</option>
-<option value="Efectivo">Efectivo</option>
-</select>
-<label class="sr-only" for="customerNotes">Notas del pedido</label>
-<textarea id="customerNotes" rows="3" placeholder="Notas del pedido (opcional)"></textarea>
-</div>
-</section>
-</div>
-
-<button class="checkout-confirm" onclick="placeOrder()">Confirmar y pagar</button>
-<div id="checkoutMessage" class="checkout-message" role="status" aria-live="polite"></div>
-</div>
-</div>
-
-<a class="whatsapp-float" 
-href="https://wa.me/50765010703?text=Hola%20MG%20Activewear%20quiero%20información%20sobre%20sus%20productos" 
-target="_blank" 
-rel="noopener noreferrer"
-aria-label="WhatsApp">
-
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-<path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4zM12.06 21.3h-.01a9.25 9.25 0 01-4.72-1.3l-.34-.2-3.64.95.97-3.55-.22-.36a9.2 9.2 0 01-1.4-4.92c0-5.1 4.15-9.25 9.26-9.25 2.47 0 4.8.96 6.55 2.7a9.21 9.21 0 012.7 6.55c0 5.1-4.15 9.25-9.26 9.25zm5.07-6.88c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.19-.44-2.27-1.4-.84-.75-1.41-1.67-1.58-1.95-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.83-2.03-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.28-.96.94-.96 2.3 0 1.36.98 2.67 1.12 2.85.14.18 1.93 2.94 4.68 4.12.65.28 1.16.44 1.56.56.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z"/>
-</svg>
-
-<span>WhatsApp</span>
-</a>
-<a class="instagram-float" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
-<path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.009 4 20 5.991 20 7.75v8.5C20 18.009 18.009 20 16.25 20h-8.5C5.991 20 4 18.009 4 16.25v-8.5C4 5.991 5.991 4 7.75 4zm8.75 1.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-</svg>
-<span>Instagram</span>
-</a>
-<!-- BANNER DE CONFIANZA -->
-<section class="trust-banner">
-<div>🚚 <strong>Envíos rápidos en Panamá</strong></div>
-<div>🔒 <strong>Pagos 100% seguros</strong></div>
-<div>💬 <strong>Atención directa por WhatsApp</strong></div>
-<div>🎁 <strong>Cambios fáciles</strong></div>
-</section>
-<h2 class="section-title">Métodos de Pago</h2>
-<section class="payment-methods">
-<div>💳 Visa</div>
-<div>💳 Mastercard</div>
-<div>🏦 Transferencia Bancaria</div>
-<div>📲 Yappy</div>
-</section>
-
-<h2 class="section-title">Políticas y Términos</h2>
-<section class="faq-section">
-<details class="faq-item" open>
-<summary>Envíos y entregas</summary>
-<p>Realizamos entregas en Panamá. Los tiempos pueden variar según zona y disponibilidad. Al confirmar tu pedido, coordinamos contigo por WhatsApp o llamada para definir horario y lugar.</p>
-</details>
-<details class="faq-item">
-<summary>Cambios y devoluciones</summary>
-<p>Aceptamos cambios dentro de 7 días calendario con producto sin uso y en empaque original. No aplican cambios en productos de cuidado personal abiertos por razones de higiene.</p>
-</details>
-<details class="faq-item">
-<summary>Garantía de calidad</summary>
-<p>Si tu producto llega con defecto de fábrica, gestionamos el reemplazo o el cambio en coordinación directa.</p>
-</details>
-<details class="faq-item">
-<summary>Términos de compra</summary>
-<p>Al realizar un pedido, aceptas que los precios, disponibilidad y promociones pueden variar sin previo aviso. La confirmación final se realiza por nuestros canales oficiales.</p>
-</details>
-<details class="faq-item">
-<summary>Política de privacidad</summary>
-<p>Usamos tus datos únicamente para gestionar tu pedido y la comunicación asociada. No compartimos tu información con terceros, salvo lo necesario para entregas o pagos.</p>
-</details>
-</section>
-
-<h2 class="section-title">Nuevas Llegadas</h2>
-<section class="new-arrivals">
-<article class="arrival-card">
-<span class="arrival-tag">NEW</span>
-<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Set beige deportivo">
-<h3>Set Nude Flow</h3>
-<p>Comodidad premium para entrenamiento o uso diario.</p>
-<strong>$79</strong>
-</article>
-<article class="arrival-card">
-<span class="arrival-tag">TREND</span>
-<img src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=900&q=80" alt="Top deportivo femenino">
-<h3>Top Blush Motion</h3>
-<p>Soporte suave con acabado elegante en tonos cálidos.</p>
-<strong>$39</strong>
-</article>
-<article class="arrival-card">
-<span class="arrival-tag">HOT</span>
-<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80" alt="Leggings beige cintura alta">
-<h3>Leggings Sand Sculpt</h3>
-<p>Cintura alta moldeadora y tela anti-transparencia.</p>
-<strong>$58</strong>
-</article>
-</section>
-
-<!-- MÁS VENDIDOS -->
-
-<h2 class="section-title">🔥 Más Vendidos</h2>
-<section class="products" id="masVendidos">
-<div class="card best-seller-card">
-<span class="best-seller-tag">MÁS VENDIDO</span>
-<img src="https://images.unsplash.com/photo-1549062572-544a64fb0c56" alt="Leggings sculpt pro">
-<h3>Leggings Sculpt Pro</h3>
-<p>$52</p>
-<div class="size-add-row">
-<select id="sizeBest">
-<option value="S">S</option>
-<option value="M">M</option>
-<option value="L">L</option>
-</select>
-<button onclick="addToCartFromCard(this, 'Leggings Sculpt Pro',52)">Añadir</button>
-</div>
-</div>
-</section>
-
-<!-- TESTIMONIOS -->
-<h2 class="section-title">Lo que dicen nuestras clientas</h2>
-<section class="testimonials">
-<div class="card">
-<p>⭐⭐⭐⭐⭐</p>
-<p>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx."</p>
-<strong>- xxxxx.</strong>
-</div>
-<div class="card">
-<p>⭐⭐⭐⭐⭐</p>
-<p>"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx."</p>
-<strong>- xxxxx.</strong>
-</div>
-</section>
-<h2 class="section-title">Sobre MG Activewear SPA</h2>
 <section class="about-section">
-<p class="about-text">
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-</p>
+  <div class="about-text-block">
+    <p class="about-lead">Somos más que ropa. Somos una <em>comunidad de mujeres</em> que se empoderan a través del movimiento y el cuidado personal.</p>
+    <p class="about-body">En MG Activewear Spa nacimos con una misión clara: llevar ropa fitness de alta calidad y productos de belleza premium directamente a las mujeres de Panamá. Creemos que sentirte bien por dentro y por fuera es la base de cualquier logro.</p>
+    <p class="about-body">Cada pieza de nuestra colección está seleccionada con atención al detalle — desde el corte hasta el tejido — para que te sientas cómoda, segura y poderosa en cada movimiento.</p>
+    <a class="btn-primary" href="https://wa.me/50765010703" target="_blank">Contáctanos →</a>
+  </div>
+  <div class="about-visual">
+    <div class="about-accent"></div>
+    <img class="about-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80" alt="MG Activewear">
+  </div>
 </section>
-<h2 class="section-title">📍 Nuestra Ubicación</h2>
 
+<!-- ═══════════════ PAYMENTS ═══════════════ -->
+<section class="payments-section">
+  <div class="payments-label">Métodos de pago aceptados</div>
+  <div class="payments-grid">
+    <span class="payment-pill">💳 Visa</span>
+    <span class="payment-pill">💳 Mastercard</span>
+    <span class="payment-pill">🏦 Transferencia</span>
+    <span class="payment-pill">📲 Yappy</span>
+    <span class="payment-pill">💵 Efectivo</span>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<div class="section-header">
+  <div class="section-eyebrow">Información</div>
+  <h2 class="section-title-lg">Preguntas <em>Frecuentes</em></h2>
+</div>
+<div class="faq-section">
+  <details class="faq-item" open>
+    <summary>Envíos y entregas</summary>
+    <p>Realizamos entregas en toda Panamá. Los tiempos varían según zona y disponibilidad. Al confirmar tu pedido, coordinamos contigo por WhatsApp para definir horario y lugar de entrega.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Cambios y devoluciones</summary>
+    <p>Aceptamos cambios dentro de 7 días calendario con producto sin uso y en empaque original. No aplican cambios en productos de cuidado personal abiertos por razones de higiene.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Garantía de calidad</summary>
+    <p>Si tu producto llega con defecto de fábrica, gestionamos el reemplazo o el cambio en coordinación directa contigo.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Términos de compra</summary>
+    <p>Al realizar un pedido, aceptas que los precios, disponibilidad y promociones pueden variar sin previo aviso. La confirmación final se realiza por nuestros canales oficiales.</p>
+  </details>
+  <details class="faq-item">
+    <summary>Política de privacidad</summary>
+    <p>Usamos tus datos únicamente para gestionar tu pedido y la comunicación asociada. No compartimos tu información con terceros, salvo lo necesario para entregas o pagos.</p>
+  </details>
+</div>
+
+<!-- ═══════════════ LOCATION ═══════════════ -->
+<div class="section-header">
+  <div class="section-eyebrow">Visítanos</div>
+  <h2 class="section-title-lg">📍 Nuestra <em>Ubicación</em></h2>
+</div>
 <section class="location-section">
-<p class="location-intro">
-Estamos ubicados en <strong>Flor Plaza, Panamá</strong> — acércate para retiros, pruebas y entregas.
-</p>
-<div class="location-layout">
-<div class="location-map-card">
-<iframe class="map-embed" 
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.7373507407786!2d-79.53428824939397!3d8.971831203114385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8c226b26903%3A0x27e215c6beaa9b9a!2sFlor+Plaza!5e0!3m2!1ses!2spa!4v1700000000000!5m2!1ses!2spa" 
-width="100%" 
-height="350" 
-allowfullscreen="" 
-loading="lazy">
-</iframe>
-<a class="map-link" href="https://www.google.com/maps/place/Flor+Plaza/@8.9718312,-79.5342882,17z" target="_blank" rel="noopener noreferrer">
-➡️ Ver en Google Maps
-</a>
-</div>
-
-<form class="satisfaction-card" id="satisfactionForm" novalidate>
-<h3>Formulario de Satisfacción</h3>
-<p>Ayúdanos a mejorar tu experiencia con MG Activewear Spa.</p>
-<label class="sr-only" for="satisfactionName">Nombre</label>
-<input type="text" id="satisfactionName" name="name" placeholder="Nombre (opcional)">
-<label class="sr-only" for="satisfactionRating">Calificación de la experiencia</label>
-<select id="satisfactionRating" name="rating" required>
-<option value="">¿Cómo calificas tu experiencia?</option>
-<option value="Excelente">Excelente</option>
-<option value="Muy buena">Muy buena</option>
-<option value="Buena">Buena</option>
-<option value="Regular">Regular</option>
-</select>
-<label class="sr-only" for="satisfactionHighlight">Aspecto destacado</label>
-<select id="satisfactionHighlight" name="highlight">
-<option value="">¿Qué te gustó más?</option>
-<option value="Calidad de productos">Calidad de productos</option>
-<option value="Atención al cliente">Atención al cliente</option>
-<option value="Variedad de tallas/colores">Variedad de tallas/colores</option>
-<option value="Tiempo de entrega">Tiempo de entrega</option>
-</select>
-<label class="sr-only" for="satisfactionComment">Comentario o sugerencia</label>
-<textarea id="satisfactionComment" name="comment" rows="4" placeholder="Comentario o sugerencia"></textarea>
-<button type="submit">Enviar opinión</button>
-<div class="form-message" id="satisfactionMessage" role="status" aria-live="polite"></div>
-</form>
-</div>
+  <div>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7">Estamos en <strong>Flor Plaza, Panamá</strong> — visítanos para retiros, pruebas y entregas personales.</p>
+    <div class="map-card">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.7373507407786!2d-79.53428824939397!3d8.971831203114385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8c226b26903%3A0x27e215c6beaa9b9a!2sFlor+Plaza!5e0!3m2!1ses!2spa!4v1700000000000!5m2!1ses!2spa" loading="lazy"></iframe>
+      <a class="map-link" href="https://www.google.com/maps/place/Flor+Plaza/@8.9718312,-79.5342882,17z" target="_blank" rel="noopener">➡️ Ver en Google Maps</a>
+    </div>
+  </div>
+  <div class="satisfaction-form">
+    <h3>Formulario de Satisfacción</h3>
+    <p>Ayúdanos a mejorar tu experiencia con MG Activewear Spa.</p>
+    <input class="form-field" type="text" placeholder="Nombre (opcional)" id="satName">
+    <select class="form-field" id="satRating">
+      <option value="">¿Cómo calificas tu experiencia?</option>
+      <option>Excelente</option>
+      <option>Muy buena</option>
+      <option>Buena</option>
+      <option>Regular</option>
+    </select>
+    <select class="form-field" id="satHighlight">
+      <option value="">¿Qué te gustó más?</option>
+      <option>Calidad de productos</option>
+      <option>Atención al cliente</option>
+      <option>Variedad de tallas/colores</option>
+      <option>Tiempo de entrega</option>
+    </select>
+    <textarea class="form-field" rows="4" placeholder="Comentario o sugerencia" id="satComment"></textarea>
+    <button class="form-submit" onclick="submitSatisfaction()">Enviar opinión</button>
+    <div class="form-msg" id="satMsg"></div>
+  </div>
 </section>
 
-</section>
-
-<footer class="footer">
-  <div class="footer-container">
-    
-    <h3>MG Activewear Spa</h3>
-    
-    <p>Empodera tu cuerpo. Eleva tu belleza.</p>
-    <p class="copy">
-      © 2026 MG Activewear Spa - Todos los derechos reservados | Panamá
-    </p>
-
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-main">MG Activewear</div>
+      <div class="brand-sub">Spa · Panamá</div>
+      <p>Empodera tu cuerpo. Eleva tu belleza. Ropa fitness premium y cuidado de la piel con entregas en toda Panamá.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Colecciones</h4>
+      <a href="#fitness-section">Ropa Fitness</a>
+      <a href="#beauty-section">Belleza</a>
+      <a href="#nuevas-llegadas">Nuevas Llegadas</a>
+      <a href="#beauty-section">Más Vendidos</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/50765010703" target="_blank">WhatsApp: +507 6501-0703</a>
+      <a href="https://www.instagram.com/mgactivewearspa/" target="_blank">@mgactivewearspa</a>
+      <p>Flor Plaza, Panamá</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MG Activewear Spa — Todos los derechos reservados</span>
+    <div class="social-links">
+      <a class="social-link" href="https://wa.me/50765010703" target="_blank" aria-label="WhatsApp">
+        <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.instagram.com/mgactivewearspa/" target="_blank" aria-label="Instagram">
+        <svg fill="white" viewBox="0 0 24 24"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm8.75 5.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
+      </a>
+    </div>
   </div>
 </footer>
-<script src="script.js"></script>
 
-<button class="back-to-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-↑
-</button>
+<!-- ═══════════════ FLOAT BUTTONS ═══════════════ -->
+<div class="float-btns">
+  <a class="float-btn whatsapp" href="https://wa.me/50765010703?text=Hola%20MG%20Activewear%20quiero%20información" target="_blank" rel="noopener">
+    <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
+    WhatsApp
+  </a>
+  <a class="float-btn instagram" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener">
+    <svg fill="white" viewBox="0 0 24 24"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm8.75 5.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
+    Instagram
+  </a>
+</div>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<!-- ═══════════════ CART DRAWER ═══════════════ -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div>
+      <div class="cart-drawer-title">Tu Canasta</div>
+      <div class="cart-drawer-sub" id="cartSub">0 productos</div>
+    </div>
+    <button class="cart-close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛍️</div>
+      <div class="cart-empty-text">Tu canasta está vacía</div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-val" id="cartTotal">$0</span>
+    </div>
+    <div class="cart-cta-grid">
+      <button class="checkout-btn primary" onclick="openCheckout()">Proceder al pago</button>
+      <button class="checkout-btn wa" onclick="checkoutWA()">Finalizar por WhatsApp</button>
+      <button class="checkout-btn ig" onclick="checkoutIG()">Finalizar por Instagram</button>
+    </div>
+    <button class="cart-clear" onclick="clearCart()">Vaciar canasta</button>
+  </div>
+</div>
+
+<!-- ═══════════════ CHECKOUT MODAL ═══════════════ -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal-header">
+      <div>
+        <h2>Pago Seguro</h2>
+        <p>Completa tus datos para confirmar el pedido</p>
+      </div>
+      <button class="cart-close-btn" onclick="closeCheckout()">✕</button>
+    </div>
+    <div class="checkout-modal-body">
+      <div class="checkout-summary-col">
+        <h3>Resumen del pedido</h3>
+        <div id="checkoutSummaryItems"></div>
+        <div class="summary-total">
+          <span>Total</span>
+          <span id="checkoutSummaryTotal">$0</span>
+        </div>
+      </div>
+      <div class="checkout-form-col">
+        <h3>Datos de envío</h3>
+        <input class="form-field" type="text" id="ckName" placeholder="Nombre completo">
+        <input class="form-field" type="email" id="ckEmail" placeholder="Correo electrónico">
+        <input class="form-field" type="tel" id="ckPhone" placeholder="Teléfono (requerido)">
+        <input class="form-field" type="text" id="ckAddress" placeholder="Dirección de entrega">
+        <select class="form-field" id="ckPayment">
+          <option value="">Método de pago</option>
+          <option>Tarjeta</option>
+          <option>Yappy</option>
+          <option>Transferencia bancaria</option>
+          <option>Efectivo</option>
+        </select>
+        <textarea class="form-field" rows="3" id="ckNotes" placeholder="Notas del pedido (opcional)"></textarea>
+        <button class="checkout-confirm-btn" onclick="placeOrder()">Confirmar y pagar</button>
+        <div class="checkout-msg" id="checkoutMsg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ─── CART STATE ───
+  let cart = [];
+  const byId = (id) => document.getElementById(id);
+
+  function closeCartIfOpen() {
+    const d = byId('cartDrawer');
+    const b = byId('cartBackdrop');
+    if (d && b && d.classList.contains('open')) {
+      d.classList.remove('open');
+      b.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function showToast(msg) {
+    const t = byId('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function toggleCart() {
+    const d = byId('cartDrawer');
+    const b = byId('cartBackdrop');
+    if (!d || !b) return;
+    d.classList.toggle('open');
+    b.classList.toggle('open');
+    document.body.style.overflow = d.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function addToCart(name, price, size='', color='') {
+    cart.push({ name, price, size, color });
+    renderCart();
+    showToast(`✓ ${name} añadido`);
+    // pulse count
+    const c = document.getElementById('cartCount');
+    c.style.transform = 'scale(1.4)';
+    setTimeout(() => c.style.transform = 'scale(1)', 200);
+  }
+
+  function addFromCard(btn, name, price) {
+    const card = btn.closest('.product-card');
+    const sizeEl = card ? card.querySelector('.size-select') : null;
+    const activeSwatch = card ? card.querySelector('.swatch.active') : null;
+    const size = sizeEl ? sizeEl.value : '';
+    const color = activeSwatch ? activeSwatch.title : '';
+    addToCart(name, price, size, color);
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function clearCart() {
+    cart = [];
+    renderCart();
+  }
+
+  function renderCart() {
+    const container = byId('cartItems');
+    const countEl = byId('cartCount');
+    const totalEl = byId('cartTotal');
+    const subEl = byId('cartSub');
+    if (!container || !countEl || !totalEl || !subEl) return;
+
+    const total = cart.reduce((s, i) => s + (Number(i.price) || 0), 0);
+    countEl.textContent = cart.length;
+    totalEl.textContent = `$${total}`;
+    subEl.textContent = `${cart.length} producto${cart.length!==1?'s':''}`;
+
+    if (cart.length === 0) {
+      container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛍️</div><div class="cart-empty-text">Tu canasta está vacía</div></div>`;
+      return;
+    }
+    container.innerHTML = cart.map((item, i) => `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-detail">${[item.size, item.color].filter(Boolean).join(' · ') || 'Sin talla/color'}</div>
+          <div class="cart-item-price">$${item.price}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i})" aria-label="Eliminar">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function selectSwatch(el, color) {
+    const card = el.closest('.product-card, .beauty-card');
+    if (!card) return;
+    card.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // ─── IMAGE NAV ───
+  function nextImg(btn) {
+    const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    if (!imgs || imgs.length < 2) return;
+    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
+    imgs.forEach(i => i.style.display = 'none');
+    imgs[(cur + 1) % imgs.length].style.display = 'block';
+  }
+  function prevImg(btn) {
+    const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    if (!imgs || imgs.length < 2) return;
+    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
+    imgs.forEach(i => i.style.display = 'none');
+    imgs[(cur - 1 + imgs.length) % imgs.length].style.display = 'block';
+  }
+
+  // ─── FILTER & SEARCH ───
+  function filterAndSearch() {
+    const cat = document.getElementById('filterCategory').value;
+    const q = document.getElementById('productSearch').value.toLowerCase();
+    const sort = document.getElementById('sortPrice').value;
+
+    let cards = Array.from(document.querySelectorAll('.products-grid .product-card'));
+    cards.forEach(c => {
+      const matchCat = cat === 'all' || c.dataset.category === cat;
+      const matchQ = !q || c.querySelector('.product-name').textContent.toLowerCase().includes(q);
+      c.style.display = matchCat && matchQ ? '' : 'none';
+    });
+
+    if (sort !== 'default') {
+      const grid = document.getElementById('productsGrid');
+      const visible = cards.filter(c => c.style.display !== 'none');
+      visible.sort((a, b) => sort === 'low'
+        ? +a.dataset.price - +b.dataset.price
+        : +b.dataset.price - +a.dataset.price
+      );
+      visible.forEach(c => grid.appendChild(c));
+    }
+  }
+
+  // ─── CHECKOUT ───
+  function openCheckout() {
+    if (cart.length === 0) { showToast('Añade productos primero'); return; }
+    closeCartIfOpen();
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    document.getElementById('checkoutSummaryTotal').textContent = `$${total}`;
+    document.getElementById('checkoutSummaryItems').innerHTML = cart.map(i =>
+      `<div class="summary-item"><span class="summary-item-name">${i.name}</span><span class="summary-item-price">$${i.price}</span></div>`
+    ).join('');
+    document.getElementById('checkoutOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkoutOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function placeOrder() {
+    const phone = document.getElementById('ckPhone').value.trim();
+    const name = document.getElementById('ckName').value.trim();
+    const payment = document.getElementById('ckPayment').value;
+    const msg = document.getElementById('checkoutMsg');
+
+    if (!phone) { msg.textContent = '⚠️ El teléfono es requerido.'; msg.classList.add('show'); return; }
+    if (!payment) { msg.textContent = '⚠️ Selecciona un método de pago.'; msg.classList.add('show'); return; }
+
+    msg.textContent = '✓ ¡Pedido recibido! Te contactamos pronto por WhatsApp.';
+    msg.classList.add('show');
+    msg.style.background = 'rgba(37,211,102,0.1)';
+    msg.style.color = '#1a7a3f';
+    setTimeout(() => { closeCheckout(); clearCart(); closeCartIfOpen(); }, 2500);
+  }
+
+  function checkoutWA() {
+    if (cart.length === 0) { showToast('Tu canasta está vacía'); return; }
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    const lines = cart.map(i => `• ${i.name}${i.size?' ('+i.size+')':(i.color?' ('+i.color+')':'')} - $${i.price}`).join('\n');
+    const text = `Hola MG Activewear 👋\nQuiero hacer un pedido:\n\n${lines}\n\n*Total: $${total}*`;
+    window.open(`https://wa.me/50765010703?text=${encodeURIComponent(text)}`, '_blank');
+  }
+
+  function checkoutIG() {
+    window.open('https://www.instagram.com/mgactivewearspa/', '_blank');
+  }
+
+  function submitSatisfaction() {
+    const rating = document.getElementById('satRating').value;
+    if (!rating) { document.getElementById('satMsg').textContent = 'Por favor selecciona una calificación.'; return; }
+    document.getElementById('satMsg').textContent = '✓ ¡Gracias por tu opinión! Nos ayuda a mejorar.';
+    ['satName','satComment'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('satRating').selectedIndex = 0;
+    document.getElementById('satHighlight').selectedIndex = 0;
+  }
+
+  // ─── BACK TO TOP ───
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backTop');
+    btn.classList.toggle('visible', window.scrollY > 400);
+    // Header shadow
+    const header = document.getElementById('mainHeader');
+    header.style.boxShadow = window.scrollY > 20 ? '0 2px 30px rgba(15,10,5,0.08)' : 'none';
+  });
+
+  // ─── INTERSECTION OBSERVER for cards ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .beauty-card, .arrival-card, .bs-card').forEach((c, i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(24px)';
+    c.style.transition = `opacity 0.5s ${i * 0.06}s ease, transform 0.5s ${i * 0.06}s ease`;
+    observer.observe(c);
+  });
+</script>
 </body>
 </html>
+
 
 
