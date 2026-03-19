@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario Web</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="inventario.css">
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <main class="page">
+    <div class="toolbar">
+      <div class="brand">
+        <img class="brand-logo" src="img/MG ACTIVEWEAR SPA.png" alt="Logo MG Activewear Spa">
+        <div>
+          <h1>Inventario</h1>
+          <span class="brand-sub">MG Activewear Spa</span>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <span id="apiStatus" class="status-dot"><span id="apiDot" class="dot"></span><span id="apiLabel">Sin conexión</span></span>
+        <span id="lastUpdate" class="muted">Sin actualizar</span>
+        <a class="nav-link" href="/monitor">Ir a pedidos</a>
+        <button id="inventoryRefreshBtn" type="button" class="btn-export">Actualizar inventario</button>
+      </div>
+    </div>
+
+    <section class="page-intro">
+      <div class="page-intro-copy">
+        <span class="intro-badge">Catálogo web</span>
+        <h2>Administra el inventario por separado</h2>
+        <p class="muted">Aquí puedes crear, editar y eliminar productos sin mezclar la operación diaria de pedidos. Lo que guardas alimenta la tienda pública.</p>
+      </div>
+      <div class="intro-grid">
+        <article class="intro-card">
+          <strong>Crea productos nuevos</strong>
+          <span>Define nombre, tipo, categoría, precio, stock, fotos, colores y tallas.</span>
+        </article>
+        <article class="intro-card">
+          <strong>Actualiza el inventario</strong>
+          <span>Modifica inventario y contenido visual desde una sola tarjeta por producto.</span>
+        </article>
+        <article class="intro-card">
+          <strong>Impacto en la tienda</strong>
+          <span>La web pública sincroniza estos cambios desde la API del servidor activo.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="inventory-panel section-shell">
+      <div class="inventory-head">
+        <div>
+          <span class="section-kicker">Inventario</span>
+          <h2>Inventario Web</h2>
+          <p class="muted">Edita stock, fotos, colores, tallas, precio y crea productos nuevos para la tienda pública.</p>
+        </div>
+        <div class="inventory-tools">
+          <input id="inventorySearch" class="inventory-search" type="search" placeholder="Buscar producto...">
+        </div>
+      </div>
+
+      <div class="inventory-create">
+        <div class="inventory-create-head">
+          <div>
+            <h3>Crear producto nuevo</h3>
+            <p class="muted">Completa lo esencial para que aparezca en la web con fotos, precio, variantes y stock.</p>
+          </div>
+        </div>
+        <div class="inventory-create-grid">
+          <input id="newProductName" class="inventory-text" type="text" placeholder="Nombre del producto">
+          <select id="newProductType" class="inventory-text">
+            <option value="fitness">Fitness</option>
+            <option value="beauty">Belleza</option>
+          </select>
+          <input id="newProductCategory" class="inventory-text" type="text" placeholder="Categoría visible">
+          <input id="newProductPrice" class="inventory-text" type="number" min="0" step="0.01" placeholder="Precio">
+          <input id="newProductStock" class="inventory-text" type="number" min="0" step="1" placeholder="Stock">
+        </div>
+        <div class="inventory-create-grid inventory-create-grid-wide">
+          <div class="inventory-field">
+            <label for="newProductImage1">Foto 1</label>
+            <input id="newProductImage1" class="inventory-text" type="file" accept="image/*">
+          </div>
+          <div class="inventory-field">
+            <label for="newProductImage2">Foto 2</label>
+            <input id="newProductImage2" class="inventory-text" type="file" accept="image/*">
+          </div>
+          <div class="inventory-field">
+            <label for="newProductImage3">Foto 3</label>
+            <input id="newProductImage3" class="inventory-text" type="file" accept="image/*">
+          </div>
+          <div class="inventory-field">
+            <label for="newProductImage4">Foto 4</label>
+            <input id="newProductImage4" class="inventory-text" type="file" accept="image/*">
+          </div>
+          <input id="newProductColors" class="inventory-text" type="text" placeholder="Colores: Beige, Negro, Rosa">
+          <input id="newProductSizes" class="inventory-text" type="text" placeholder="Tallas: S, M, L, XL">
+        </div>
+        <div class="inventory-create-actions">
+          <button id="inventoryCreateBtn" type="button">Crear producto</button>
+        </div>
+      </div>
+
+      <div class="inventory-stats">
+        <span class="legend-chip">Productos: <strong id="inventoryCount">0</strong></span>
+        <span class="legend-chip">Unidades totales: <strong id="inventoryUnits">0</strong></span>
+      </div>
+
+      <div id="inventoryGrid" class="inventory-grid">
+        <p class="empty">Sin inventario</p>
+      </div>
+      <p id="inventoryMsg" class="muted" hidden></p>
+    </section>
+  </main>
+<script src="inventario.js"></script>
+</body>
+</html>
