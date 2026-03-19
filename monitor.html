@@ -21,7 +21,7 @@
       <span id="apiStatus" class="status-dot"><span id="apiDot" class="dot"></span><span id="apiLabel">Sin conexión</span></span>
       <span id="lastUpdate" class="muted">Sin actualizar</span>
       <button id="refreshBtn" type="button">Actualizar</button>
-      <button id="exportBtn" type="button" class="btn-export">Exportar Excel</button>
+      <button id="exportBtn" type="button" class="btn-export">Exportar CSV</button>
     </div>
   </div>
 
@@ -44,26 +44,36 @@
     </article>
   </section>
 
-  <section class="legend">
-    <span class="legend-chip">Nuevo: pedido recién entrado</span>
-    <span class="legend-chip">En proceso: preparación activa</span>
-    <span class="legend-chip">Listo: pedido finalizado</span>
-  </section>
+  <section class="section-shell">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Pedidos</span>
+        <h2>Estado de Pedidos</h2>
+        <p class="muted">Revisa rápido qué acaba de entrar, qué se está preparando y qué ya quedó listo para entrega.</p>
+      </div>
+    </div>
 
-  <div class="board">
-    <section id="nuevo" class="column">
-      <h2>Nuevos <span id="countNuevo" class="pill">0</span></h2>
-      <p class="empty">Sin pedidos</p>
+    <section class="legend">
+      <span class="legend-chip">Nuevo: pedido recién entrado</span>
+      <span class="legend-chip">En proceso: preparación activa</span>
+      <span class="legend-chip">Listo: pedido finalizado</span>
     </section>
-    <section id="proceso" class="column">
-      <h2>En Proceso <span id="countProceso" class="pill">0</span></h2>
-      <p class="empty">Sin pedidos</p>
-    </section>
-    <section id="listo" class="column">
-      <h2>Listos <span id="countListo" class="pill">0</span></h2>
-      <p class="empty">Sin pedidos</p>
-    </section>
-  </div>
+
+    <div class="board">
+      <section id="nuevo" class="column">
+        <h2>Nuevos <span id="countNuevo" class="pill">0</span></h2>
+        <p class="empty">Sin pedidos</p>
+      </section>
+      <section id="proceso" class="column">
+        <h2>En Proceso <span id="countProceso" class="pill">0</span></h2>
+        <p class="empty">Sin pedidos</p>
+      </section>
+      <section id="listo" class="column">
+        <h2>Listos <span id="countListo" class="pill">0</span></h2>
+        <p class="empty">Sin pedidos</p>
+      </section>
+    </div>
+  </section>
 
   <p id="errorBox" class="error" hidden></p>
   </main>
