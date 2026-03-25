@@ -21,23 +21,34 @@
     --white: #fdfaf6;
     --muted: #7a6e62;
     --card-bg: #fff9f3;
+<<<<<<< HEAD
     --radius: 18px;
+=======
+    --radius: 2px;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --page-pad: clamp(1.2rem, 3vw, 4rem);
     --content-max: 1200px;
     --content-wide: 1400px;
+<<<<<<< HEAD
     --line-soft: rgba(201,150,90,0.18);
     --shadow-soft: 0 18px 40px rgba(67, 45, 25, 0.08);
     --shadow-strong: 0 26px 60px rgba(36, 22, 10, 0.12);
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Outfit', sans-serif;
+<<<<<<< HEAD
     background:
       radial-gradient(circle at top left, rgba(232,196,176,0.28), transparent 28%),
       radial-gradient(circle at top right, rgba(232,184,122,0.12), transparent 24%),
       linear-gradient(180deg, #fbf6ef 0%, #f6efe6 52%, #f4ede4 100%);
+=======
+    background: var(--cream);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     color: var(--ink);
     overflow-x: hidden;
     line-height: 1.5;
@@ -73,16 +84,24 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.1rem var(--page-pad);
+<<<<<<< HEAD
     background: rgba(251, 246, 239, 0.86);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(201, 150, 90, 0.12);
     box-shadow: 0 12px 28px rgba(61, 42, 25, 0.05);
+=======
+    background: rgba(247, 242, 235, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 150, 90, 0.15);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     transition: all 0.3s ease;
   }
 
   .logo-wordmark {
     display: flex;
+<<<<<<< HEAD
     align-items: center;
     gap: 0.9rem;
     line-height: 1;
@@ -90,6 +109,10 @@
   .logo-wordmark .logo-text {
     display: flex;
     flex-direction: column;
+=======
+    flex-direction: column;
+    line-height: 1;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .logo-wordmark .brand-main {
     font-family: 'Cormorant Garamond', serif;
@@ -154,11 +177,18 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     cursor: pointer;
+<<<<<<< HEAD
     transition: background var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
     border-radius: var(--radius);
     box-shadow: 0 14px 30px rgba(26, 16, 8, 0.18);
   }
   .cart-btn:hover { background: var(--bronze); transform: translateY(-1px); box-shadow: 0 18px 34px rgba(201, 150, 90, 0.24); }
+=======
+    transition: background var(--transition);
+    border-radius: var(--radius);
+  }
+  .cart-btn:hover { background: var(--bronze); }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .cart-count {
     background: var(--bronze);
     color: white;
@@ -439,6 +469,7 @@
   .catalog-controls {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem 1.1rem;
@@ -453,10 +484,19 @@
     top: 82px;
     z-index: 40;
     backdrop-filter: blur(14px);
+=======
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 var(--page-pad) 2.5rem;
+    flex-wrap: wrap;
+    max-width: var(--content-wide);
+    margin: 0 auto;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .catalog-controls select,
   .catalog-controls input {
     font-family: 'Outfit', sans-serif;
+<<<<<<< HEAD
     font-size: 0.82rem;
     font-weight: 500;
     letter-spacing: 0.03em;
@@ -508,19 +548,43 @@
     padding: 0.8rem var(--page-pad) 1.6rem;
     display: none;
   }
+=======
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    border: 1px solid rgba(201,150,90,0.3);
+    background: var(--white);
+    color: var(--ink);
+    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color var(--transition);
+    cursor: pointer;
+  }
+  .catalog-controls select:focus,
+  .catalog-controls input:focus { border-color: var(--bronze); }
+  .catalog-controls input { min-width: 220px; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 
   /* ── PRODUCT GRID ── */
   .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+<<<<<<< HEAD
     gap: 1.2rem;
     background: transparent;
     padding: 0 var(--page-pad) 0;
+=======
+    gap: 1.5px;
+    background: var(--sand);
+    padding: 0 var(--page-pad) 1.5px;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     margin: 0 auto 5rem;
     max-width: var(--content-wide);
   }
 
   .product-card {
+<<<<<<< HEAD
     background: rgba(255, 251, 247, 0.94);
     position: relative;
     overflow: hidden;
@@ -530,6 +594,14 @@
     box-shadow: var(--shadow-soft);
   }
   .product-card:hover { z-index: 2; transform: translateY(-4px); box-shadow: var(--shadow-strong); border-color: rgba(201,150,90,0.28); }
+=======
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+  .product-card:hover { z-index: 2; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .product-card,
   .beauty-card,
   .arrival-card {
@@ -542,7 +614,11 @@
     position: relative;
     overflow: hidden;
     aspect-ratio: 3/4;
+<<<<<<< HEAD
     background: linear-gradient(180deg, #efe5d7 0%, #e7dbca 100%);
+=======
+    background: var(--sand);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .product-img-wrap img {
     width: 100%; height: 100%;
@@ -550,8 +626,11 @@
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s;
     filter: saturate(0.85);
   }
+<<<<<<< HEAD
   .product-img-wrap .prod-img { display: none; }
   .product-img-wrap .prod-img.active { display: block; }
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .product-card:hover .product-img-wrap img {
     transform: scale(1.06);
     filter: saturate(1);
@@ -564,10 +643,17 @@
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
+<<<<<<< HEAD
     padding: 0.42rem 0.82rem;
     background: var(--ink);
     color: var(--bronze-light);
     border-radius: 999px;
+=======
+    padding: 0.3rem 0.7rem;
+    background: var(--ink);
+    color: var(--bronze-light);
+    border-radius: var(--radius);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     z-index: 2;
   }
   .product-tag.sale { background: var(--rose); color: white; }
@@ -602,11 +688,18 @@
   .product-nav button:hover { background: var(--bronze); color: white; }
 
   .product-body {
+<<<<<<< HEAD
     padding: 1.35rem 1.35rem 1.4rem;
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 0.15rem;
+=======
+    padding: 1.2rem 1.4rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   .product-category-tag {
@@ -620,11 +713,19 @@
 
   .product-name {
     font-family: 'Cormorant Garamond', serif;
+<<<<<<< HEAD
     font-size: 1.35rem;
     font-weight: 600;
     color: var(--ink);
     line-height: 1.2;
     margin-bottom: 0.35rem;
+=======
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   .product-price-row {
@@ -634,9 +735,15 @@
     margin-bottom: 1rem;
   }
   .product-price {
+<<<<<<< HEAD
     font-size: 1.2rem;
     font-weight: 700;
     color: #2b1809;
+=======
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   .color-swatches {
@@ -645,6 +752,7 @@
     margin-bottom: 1rem;
     flex-wrap: wrap;
   }
+<<<<<<< HEAD
   .color-swatches.is-hidden { display: none; }
   .swatch {
     width: 22px; height: 22px;
@@ -654,6 +762,15 @@
     transition: all 0.2s;
     position: relative;
     box-shadow: 0 4px 10px rgba(33, 19, 8, 0.12);
+=======
+  .swatch {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .swatch:hover,
   .swatch.active {
@@ -666,7 +783,10 @@
     gap: 0.6rem;
     align-items: center;
     margin-top: auto;
+<<<<<<< HEAD
     padding-top: 0.35rem;
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .size-select {
     flex: 1;
@@ -674,16 +794,24 @@
     font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.08em;
+<<<<<<< HEAD
     border: 1px solid rgba(201,150,90,0.2);
     background: #fffdfa;
     color: var(--ink);
     padding: 0.82rem 0.9rem;
+=======
+    border: 1px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    padding: 0.6rem 0.8rem;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     border-radius: var(--radius);
     outline: none;
     cursor: pointer;
     transition: border-color 0.2s;
   }
   .size-select:focus { border-color: var(--bronze); }
+<<<<<<< HEAD
   .size-select.is-hidden { display: none; }
   .beauty-meta {
     font-size: 0.68rem;
@@ -701,12 +829,25 @@
     font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.12em;
+=======
+
+  .add-btn {
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 0.65rem 1.2rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     text-transform: uppercase;
     cursor: pointer;
     border-radius: var(--radius);
     transition: all var(--transition);
     white-space: nowrap;
     flex: 1.5;
+<<<<<<< HEAD
     box-shadow: 0 16px 28px rgba(26,16,8,0.16);
   }
   .add-btn:hover { background: linear-gradient(135deg, #c9965a 0%, #d9aa72 100%); transform: translateY(-2px); box-shadow: 0 20px 32px rgba(201,150,90,0.24); }
@@ -714,19 +855,34 @@
 
   /* ── BEAUTY SECTION ── */
   .beauty-section { background: linear-gradient(180deg, #161009 0%, #0f0a05 100%); padding: 5rem var(--page-pad); margin-bottom: 5rem; }
+=======
+  }
+  .add-btn:hover { background: var(--bronze); transform: translateY(-1px); }
+  .add-btn:active { transform: translateY(0); }
+
+  /* ── BEAUTY SECTION ── */
+  .beauty-section { background: var(--warm-black); padding: 5rem var(--page-pad); margin-bottom: 5rem; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .beauty-section .section-eyebrow { color: var(--bronze-light); }
   .beauty-section .section-title-lg { color: var(--white); }
   .beauty-section .section-title-lg em { color: var(--bronze-light); }
   .beauty-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+<<<<<<< HEAD
     gap: 1rem;
     background: transparent;
     padding: 0;
+=======
+    gap: 1.5px;
+    background: rgba(255,255,255,0.05);
+    padding: 0 0 1.5px;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     max-width: var(--content-wide);
     margin: 0 auto;
   }
   .beauty-card {
+<<<<<<< HEAD
     background: linear-gradient(180deg, #1f1710 0%, #17110b 100%);
     position: relative;
     overflow: hidden;
@@ -736,6 +892,13 @@
     box-shadow: 0 22px 46px rgba(0,0,0,0.18);
   }
   .beauty-card:hover { transform: translateY(-4px); box-shadow: 0 28px 58px rgba(0,0,0,0.24); border-color: rgba(232,184,122,0.22); }
+=======
+    background: #1a140c;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .beauty-img-wrap {
     aspect-ratio: 1;
     overflow: hidden;
@@ -751,7 +914,11 @@
     transform: scale(1.08);
     filter: brightness(0.95) saturate(0.9);
   }
+<<<<<<< HEAD
   .beauty-body { padding: 1.35rem 1.35rem 1.45rem; }
+=======
+  .beauty-body { padding: 1.2rem 1.4rem 1.4rem; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .beauty-body {
     display: flex;
     flex-direction: column;
@@ -772,6 +939,7 @@
   }
   .beauty-add-btn {
     width: 100%;
+<<<<<<< HEAD
     background: rgba(255,255,255,0.04);
     color: var(--bronze-light);
     border: 1px solid rgba(201,150,90,0.4);
@@ -780,6 +948,16 @@
     font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.12em;
+=======
+    background: transparent;
+    color: var(--bronze-light);
+    border: 1px solid rgba(201,150,90,0.4);
+    padding: 0.65rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     text-transform: uppercase;
     cursor: pointer;
     border-radius: var(--radius);
@@ -794,7 +972,11 @@
   .stock-badge {
     position: absolute;
     top: 1rem; right: 1rem;
+<<<<<<< HEAD
     background: rgba(196, 135, 122, 0.92);
+=======
+    background: rgba(196, 135, 122, 0.9);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     color: white;
     font-size: 0.6rem;
     font-weight: 700;
@@ -802,6 +984,7 @@
     text-transform: uppercase;
     padding: 0.3rem 0.6rem;
     border-radius: var(--radius);
+<<<<<<< HEAD
     z-index: 3;
     box-shadow: 0 10px 20px rgba(15,10,5,0.18);
   }
@@ -821,6 +1004,8 @@
   }
   .product-card[data-stock-state="out"] .size-select {
     opacity: 0.7;
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   /* ── BEST SELLERS ── */
@@ -895,6 +1080,7 @@
   }
   .trust-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.5; }
 
+<<<<<<< HEAD
   /* ── HOW IT WORKS ── */
   .how-it-works {
     max-width: var(--content-wide);
@@ -970,6 +1156,8 @@
     line-height: 1.7;
   }
 
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   /* ── NEW ARRIVALS ── */
   .arrivals { padding: 0 var(--page-pad) 5rem; }
   .arrivals-grid {
@@ -1390,13 +1578,21 @@
     top: 0; right: 0;
     width: min(460px, 95vw);
     height: 100vh;
+<<<<<<< HEAD
     background: linear-gradient(180deg, #fffdf9 0%, #f8f1e8 100%);
+=======
+    background: var(--white);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     z-index: 1100;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     box-shadow: -24px 0 70px rgba(0,0,0,0.16);
+=======
+    box-shadow: -20px 0 60px rgba(0,0,0,0.15);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .cart-drawer.open { transform: translateX(0); }
   .cart-drawer-header {
@@ -1404,7 +1600,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.8rem 2rem;
+<<<<<<< HEAD
     border-bottom: 1px solid rgba(201,150,90,0.18);
+=======
+    border-bottom: 1px solid var(--sand);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .cart-drawer-title {
     font-family: 'Cormorant Garamond', serif;
@@ -1432,7 +1632,11 @@
     display: flex;
     gap: 1rem;
     padding: 1rem 0;
+<<<<<<< HEAD
     border-bottom: 1px solid rgba(201,150,90,0.14);
+=======
+    border-bottom: 1px solid var(--sand);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     align-items: flex-start;
     animation: fadeUp 0.3s ease forwards;
   }
@@ -1440,6 +1644,7 @@
   .cart-item-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
   .cart-item-detail { font-size: 0.72rem; color: var(--muted); }
   .cart-item-price { font-size: 0.95rem; font-weight: 700; color: var(--bronze); margin-top: 0.5rem; }
+<<<<<<< HEAD
   .cart-item-meta {
     display: flex;
     align-items: center;
@@ -1475,6 +1680,8 @@
     font-weight: 700;
     color: var(--ink);
   }
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .cart-item-remove {
     background: none; border: none;
     color: var(--muted); font-size: 1rem;
@@ -1555,15 +1762,25 @@
   }
   .checkout-overlay.open { opacity: 1; pointer-events: all; }
   .checkout-modal {
+<<<<<<< HEAD
     background: linear-gradient(180deg, #fffdfa 0%, #f8f1e8 100%);
+=======
+    background: var(--white);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     width: 100%;
     max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
+<<<<<<< HEAD
     border-radius: 28px;
     transform: translateY(20px);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 40px 80px rgba(14, 10, 6, 0.22);
+=======
+    border-radius: 4px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .checkout-overlay.open .checkout-modal { transform: translateY(0); }
   .checkout-modal-header {
@@ -1571,7 +1788,11 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 2rem 2.5rem 1.5rem;
+<<<<<<< HEAD
     border-bottom: 1px solid rgba(201,150,90,0.16);
+=======
+    border-bottom: 1px solid var(--sand);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .checkout-modal-header h2 {
     font-family: 'Cormorant Garamond', serif;
@@ -1586,9 +1807,15 @@
     gap: 0;
   }
   .checkout-summary-col {
+<<<<<<< HEAD
     background: linear-gradient(180deg, #f8f0e6 0%, #f4eadf 100%);
     padding: 2rem 2rem;
     border-right: 1px solid rgba(201,150,90,0.16);
+=======
+    background: var(--cream);
+    padding: 2rem 2rem;
+    border-right: 1px solid var(--sand);
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
   .checkout-summary-col h3 {
     font-size: 0.65rem;
@@ -1638,10 +1865,16 @@
     text-transform: uppercase;
     cursor: pointer;
     border-radius: var(--radius);
+<<<<<<< HEAD
     transition: background 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 18px 32px rgba(26,16,8,0.16);
   }
   .checkout-confirm-btn:hover { background: var(--bronze); transform: translateY(-2px); box-shadow: 0 24px 38px rgba(201,150,90,0.24); }
+=======
+    transition: background 0.3s;
+  }
+  .checkout-confirm-btn:hover { background: var(--bronze); }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   .checkout-msg {
     font-size: 0.8rem;
     color: var(--bronze);
@@ -1654,6 +1887,7 @@
     display: none;
   }
   .checkout-msg.show { display: block; }
+<<<<<<< HEAD
   .checkout-msg.is-error {
     color: #8d3a36;
     background: rgba(164,73,66,0.1);
@@ -1755,6 +1989,8 @@
     background: var(--ink);
     color: var(--white);
   }
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 
   button:focus-visible,
   a:focus-visible,
@@ -1768,7 +2004,11 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     header { padding: 1.1rem var(--page-pad); }
+<<<<<<< HEAD
     .hero { grid-template-columns: 1.1fr 0.9fr; height: auto; }
+=======
+    .hero { grid-template-columns: 1fr; height: auto; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     .hero-left { padding: 6.5rem var(--page-pad) 4rem; }
     .hero-right { height: 60vw; }
     .bestsellers-grid { grid-template-columns: 1fr 1fr; }
@@ -1777,7 +2017,10 @@
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .trust-strip { grid-template-columns: 1fr 1fr; }
     .trust-item { border-bottom: 1px solid rgba(201,150,90,0.2); }
+<<<<<<< HEAD
     .how-shell { grid-template-columns: 1fr; }
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     .testimonials-grid { grid-template-columns: 1fr; }
     .arrivals-grid { grid-template-columns: 1fr 1fr; }
     .checkout-modal-body { grid-template-columns: 1fr; }
@@ -1786,6 +2029,7 @@
   @media (max-width: 768px) {
     header { padding: 1rem var(--page-pad); }
     nav { display: none; }
+<<<<<<< HEAD
     .logo-wordmark { gap: 0.6rem; }
     .logo-wordmark .brand-main { font-size: 1.2rem; letter-spacing: 0.08em; }
     .logo-wordmark .brand-sub { letter-spacing: 0.2em; }
@@ -1806,16 +2050,27 @@
     .catalog-controls select { min-width: 0; width: 100%; flex: 1 1 100%; }
     .catalog-meta { flex-direction: column; align-items: flex-start; padding: 0.9rem 0.95rem; }
     .catalog-note { text-align: left; }
+=======
+    .hero-left { padding: 6rem var(--page-pad) 3rem; }
+    .hero-stats { gap: 1.5rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--sand); }
+    .catalog-controls { padding: 0 var(--page-pad) 2rem; gap: 0.6rem; }
+    .catalog-controls input { min-width: 160px; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     .beauty-grid { grid-template-columns: repeat(2, 1fr); }
     .bestsellers-grid { grid-template-columns: 1fr; }
     .arrivals-grid { grid-template-columns: 1fr; }
     .trust-strip { grid-template-columns: 1fr 1fr; }
+<<<<<<< HEAD
     .how-grid { grid-template-columns: 1fr; }
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .footer-bottom { flex-direction: column; gap: 1rem; }
     .about-section { padding: 4rem var(--page-pad); }
     .faq-section { padding: 0 var(--page-pad) 4rem; }
     .section-header { padding: 4rem var(--page-pad) 2.5rem; }
+<<<<<<< HEAD
     .float-btns { bottom: 6rem; right: 1rem; }
     .mobile-cart-bar { display: flex; }
     .toast { bottom: 7rem; }
@@ -1873,6 +2128,17 @@
     }
     .mobile-cart-total { font-size: 1.12rem; }
     .float-btns { bottom: 5.6rem; }
+=======
+    .float-btns { bottom: 1.5rem; right: 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .beauty-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .payments-section { padding: 2.5rem var(--page-pad); }
+    .payments-grid { gap: 0.8rem; }
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1905,21 +2171,34 @@
   }
 </style>
 </head>
+<<<<<<< HEAD
 <body data-api-base="{{API_BASE_URL}}">
+=======
+<body>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 
 <!-- ═══════════════ HEADER ═══════════════ -->
 <header id="mainHeader">
   <div class="logo-wordmark">
+<<<<<<< HEAD
     <div class="logo-text">
       <span class="brand-main">MG Activewear</span>
       <span class="brand-sub">Spa · Panamá</span>
     </div>
+=======
+    <span class="brand-main">MG Activewear</span>
+    <span class="brand-sub">Spa · Panamá</span>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   </div>
   <nav>
     <a href="#fitness-section">Ropa Fitness</a>
     <a href="#beauty-section">Belleza</a>
     <a href="#nuevas-llegadas">Nuevos</a>
+<<<<<<< HEAD
     <a href="#mas-vendidos">Ofertas</a>
+=======
+    <a href="#beauty-section">Ofertas</a>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   </nav>
   <div class="header-right">
     <button class="cart-btn" onclick="toggleCart()">
@@ -1997,6 +2276,7 @@
   <div class="trust-item"><div class="trust-icon">🎁</div><div class="trust-title">Cambios Fáciles</div><div class="trust-desc">7 días con producto sin uso</div></div>
 </div>
 
+<<<<<<< HEAD
 <section class="how-it-works" aria-labelledby="howTitle">
   <div class="how-shell">
     <div class="how-intro">
@@ -2020,10 +2300,330 @@
         <h3>Coordinamos entrega</h3>
         <p>El equipo recibe el pedido en el monitor y te contacta para entrega, retiro o seguimiento.</p>
       </article>
+=======
+<!-- ═══════════════ FITNESS ═══════════════ -->
+<div class="section-header" id="fitness-section">
+  <div class="section-eyebrow">Colección Principal</div>
+  <h2 class="section-title-lg">Ropa Fitness <em>Mujer</em></h2>
+</div>
+
+<div class="catalog-controls">
+  <select id="filterCategory" onchange="filterAndSearch()">
+    <option value="all">Todas las categorías</option>
+    <option value="fitness">Fitness</option>
+    <option value="beauty">Belleza</option>
+  </select>
+  <input type="search" id="productSearch" placeholder="Buscar producto..." oninput="filterAndSearch()">
+  <select id="sortPrice" onchange="filterAndSearch()">
+    <option value="default">Ordenar por precio</option>
+    <option value="low">Menor a mayor</option>
+    <option value="high">Mayor a menor</option>
+  </select>
+</div>
+
+<div class="products-grid" id="productsGrid">
+
+  <!-- Cinturilla Reloj de Arena -->
+  <div class="product-card" data-category="fitness" data-price="110">
+    <div class="product-img-wrap">
+      <span class="product-tag">Premium</span>
+      <img class="prod-img" src="img/Faja blanca.png" onerror="this.src='https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80'" alt="Cinturilla Reloj de Arena">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Fajas & Cinturillas</div>
+      <div class="product-name">Cinturilla Reloj de Arena</div>
+      <div class="product-price-row"><span class="product-price">$110</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#ee8d8d" title="Rosa" onclick="selectSwatch(this,'Rosa')"></span>
+        <span class="swatch" style="background:#f5f5dc" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#ff4444" title="Rojo" onclick="selectSwatch(this,'Rojo')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Cinturilla Reloj de Arena',110)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Faja Larga -->
+  <div class="product-card" data-category="fitness" data-price="110">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="img/faja larga .png" onerror="this.src='https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80'" alt="Faja Larga">
+      <div class="product-nav">
+        <button onclick="prevImg(this)" aria-label="Prev">◀</button>
+        <button onclick="nextImg(this)" aria-label="Next">▶</button>
+      </div>
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Fajas & Cinturillas</div>
+      <div class="product-name">Faja Larga</div>
+      <div class="product-price-row"><span class="product-price">$110</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#b76e79" title="Rosa" onclick="selectSwatch(this,'Rosa')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Faja Larga',110)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Short Faja -->
+  <div class="product-card" data-category="fitness" data-price="65">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="img/Short Faja.png" onerror="this.src='https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80'" alt="Short Faja">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Shorts</div>
+      <div class="product-name">Short Faja</div>
+      <div class="product-price-row"><span class="product-price">$65</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Short Faja',65)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Short Sculpt -->
+  <div class="product-card" data-category="fitness" data-price="38">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=600&q=80" alt="Short Sculpt">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Shorts</div>
+      <div class="product-name">Short Sculpt</div>
+      <div class="product-price-row"><span class="product-price">$38</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#f0c9c9" title="Rosa Claro" onclick="selectSwatch(this,'Rosa Claro')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Short Sculpt',38)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Seamless -->
+  <div class="product-card" data-category="fitness" data-price="42">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1526401485004-2aa7f3b3c1c4?auto=format&fit=crop&w=600&q=80" alt="Top Seamless">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Tops</div>
+      <div class="product-name">Top Seamless</div>
+      <div class="product-price-row"><span class="product-price">$42</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#eeeeee;border:1px solid #ccc" title="Blanco" onclick="selectSwatch(this,'Blanco')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Top Seamless',42)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hoodie Active -->
+  <div class="product-card" data-category="fitness" data-price="70">
+    <div class="product-img-wrap">
+      <span class="product-tag new-tag">Nuevo</span>
+      <img class="prod-img" src="https://images.unsplash.com/photo-1506629905607-45d3b2f9c5e7?auto=format&fit=crop&w=600&q=80" alt="Hoodie Active">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Hoodies</div>
+      <div class="product-name">Hoodie Active</div>
+      <div class="product-price-row"><span class="product-price">$70</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Hoodie Active',70)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Set Deportivo -->
+  <div class="product-card" data-category="fitness" data-price="74">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Sets</div>
+      <div class="product-name">Set Deportivo Beige</div>
+      <div class="product-price-row"><span class="product-price">$74</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#d3b8a0" title="Nude" onclick="selectSwatch(this,'Nude')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Set Deportivo Beige',74)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leggings Cintura Alta -->
+  <div class="product-card" data-category="fitness" data-price="55">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80" alt="Leggings Cintura Alta">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Leggings</div>
+      <div class="product-name">Leggings Cintura Alta</div>
+      <div class="product-price-row"><span class="product-price">$55</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+        <span class="swatch" style="background:#5f4b45" title="Chocolate" onclick="selectSwatch(this,'Chocolate')"></span>
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Leggings Cintura Alta',55)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Deportivo Seamless -->
+  <div class="product-card" data-category="fitness" data-price="34">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="Top Deportivo Seamless">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Tops</div>
+      <div class="product-name">Top Deportivo Seamless</div>
+      <div class="product-price-row"><span class="product-price">$34</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#f2c9cd" title="Rosa Pálido" onclick="selectSwatch(this,'Rosa Pálido')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Top Deportivo Seamless',34)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chaqueta Fitness -->
+  <div class="product-card" data-category="fitness" data-price="47">
+    <div class="product-img-wrap">
+      <img class="prod-img" src="https://images.unsplash.com/photo-1434596922112-19c563067271?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Fitness">
+    </div>
+    <div class="product-body">
+      <div class="product-category-tag">Chaquetas</div>
+      <div class="product-name">Chaqueta Fitness Ligera</div>
+      <div class="product-price-row"><span class="product-price">$47</span></div>
+      <div class="color-swatches">
+        <span class="swatch" style="background:#f5f0e6" title="Beige" onclick="selectSwatch(this,'Beige')"></span>
+        <span class="swatch" style="background:#8b5e3b" title="Café" onclick="selectSwatch(this,'Café')"></span>
+        <span class="swatch" style="background:#111111" title="Negro" onclick="selectSwatch(this,'Negro')"></span>
+      </div>
+      <div class="product-footer">
+        <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+        <button class="add-btn" onclick="addFromCard(this,'Chaqueta Fitness Ligera',47)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /products-grid -->
+
+
+<!-- ═══════════════ BEAUTY ═══════════════ -->
+<section class="beauty-section" id="beauty-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Skincare & Wellness</div>
+    <h2 class="section-title-lg">Productos de <em>Belleza</em></h2>
+  </div>
+
+  <div class="beauty-grid" style="padding:0 1.5px 1.5px">
+    <div class="beauty-card" data-category="beauty" data-price="30">
+      <span class="stock-badge">Solo 8 disponibles</span>
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Serum Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Serum Glow</div>
+        <div class="beauty-price">$30</div>
+        <button class="beauty-add-btn" onclick="addToCart('Serum Glow',30)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="28">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80" alt="Crema Reafirmante"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Crema Reafirmante</div>
+        <div class="beauty-price">$28</div>
+        <button class="beauty-add-btn" onclick="addToCart('Crema Reafirmante',28)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="48">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Kit Facial Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Kit Facial Glow</div>
+        <div class="beauty-price">$48</div>
+        <button class="beauty-add-btn" onclick="addToCart('Kit Facial Glow',48)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="34">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80" alt="Body Oil"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Body Oil Reafirmante</div>
+        <div class="beauty-price">$34</div>
+        <button class="beauty-add-btn" onclick="addToCart('Body Oil Reafirmante',34)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="26">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=600&q=80" alt="Protector Solar Sport"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Protector Solar Sport</div>
+        <div class="beauty-price">$26</div>
+        <button class="beauty-add-btn" onclick="addToCart('Protector Solar Sport',26)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="29">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80" alt="Mascarilla Detox"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Mascarilla Detox</div>
+        <div class="beauty-price">$29</div>
+        <button class="beauty-add-btn" onclick="addToCart('Mascarilla Detox',29)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="41">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" alt="Sérum Vitamina C+"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Sérum Vitamina C+</div>
+        <div class="beauty-price">$41</div>
+        <button class="beauty-add-btn" onclick="addToCart('Sérum Vitamina C+',41)">+ Añadir a canasta</button>
+      </div>
+    </div>
+    <div class="beauty-card" data-category="beauty" data-price="38">
+      <div class="beauty-img-wrap"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Exfoliante Body Glow"></div>
+      <div class="beauty-body">
+        <div class="beauty-name">Exfoliante Body Glow</div>
+        <div class="beauty-price">$38</div>
+        <button class="beauty-add-btn" onclick="addToCart('Exfoliante Body Glow',38)">+ Añadir a canasta</button>
+      </div>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     </div>
   </div>
 </section>
 
+<<<<<<< HEAD
 <!-- ═══════════════ FITNESS ═══════════════ -->
 <div class="section-header" id="fitness-section">
   <div class="section-eyebrow">Colección Principal</div>
@@ -2398,10 +2998,103 @@
         <div class="beauty-price">$38</div>
         <button class="beauty-add-btn" onclick="addToCart('Exfoliante Body Glow',38)">+ Añadir a canasta</button>
       </div>
+=======
+<!-- ═══════════════ MÁS VENDIDOS ═══════════════ -->
+<div class="section-header">
+  <div class="section-eyebrow">Top Picks</div>
+  <h2 class="section-title-lg">🔥 <em>Más</em> Vendidos</h2>
+</div>
+<div class="bestsellers" style="padding:0 1.5px 1.5px">
+  <div class="bestsellers-grid" style="background:var(--sand);gap:1.5px">
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?auto=format&fit=crop&w=900&q=80" alt="Leggings Sculpt Pro">
+      <div class="bs-overlay">
+        <div class="bs-tag">⭐ Más vendido</div>
+        <div class="bs-name">Leggings Sculpt Pro</div>
+        <div class="bs-price">$52</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Leggings Sculpt Pro',52)">+ Añadir</button>
+      </div>
+    </div>
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=600&q=80" alt="Set Deportivo">
+      <div class="bs-overlay">
+        <div class="bs-tag">Favorita</div>
+        <div class="bs-name">Set Deportivo</div>
+        <div class="bs-price">$74</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Set Deportivo Beige',74)">+ Añadir</button>
+      </div>
+    </div>
+    <div class="bs-card" style="position:relative;overflow:hidden">
+      <img class="bs-img" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80" alt="Kit Facial">
+      <div class="bs-overlay">
+        <div class="bs-tag">Belleza</div>
+        <div class="bs-name">Kit Facial Glow</div>
+        <div class="bs-price">$48</div>
+        <button class="add-btn" style="margin-top:1rem;max-width:160px" onclick="addToCart('Kit Facial Glow',48)">+ Añadir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NUEVAS LLEGADAS ═══════════════ -->
+<div class="section-header" id="nuevas-llegadas">
+  <div class="section-eyebrow">Recién llegado</div>
+  <h2 class="section-title-lg">Nuevas <em>Llegadas</em></h2>
+</div>
+<div class="arrivals" style="padding:0 1.5px 5rem">
+  <div class="arrivals-grid" style="background:var(--sand);gap:1.5px">
+    <div class="arrival-card">
+      <span class="arrival-badge">NEW</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Set Nude Flow">
+      <div class="arrival-body">
+        <div class="arrival-name">Set Nude Flow</div>
+        <div class="arrival-desc">Comodidad premium para entrenamiento o uso diario.</div>
+        <div class="arrival-price">$79</div>
+      </div>
+    </div>
+    <div class="arrival-card">
+      <span class="arrival-badge" style="background:var(--rose)">TREND</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=800&q=80" alt="Top Blush Motion">
+      <div class="arrival-body">
+        <div class="arrival-name">Top Blush Motion</div>
+        <div class="arrival-desc">Soporte suave con acabado elegante en tonos cálidos.</div>
+        <div class="arrival-price">$39</div>
+      </div>
+    </div>
+    <div class="arrival-card">
+      <span class="arrival-badge" style="background:var(--ink)">HOT</span>
+      <img class="arrival-img" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Leggings Sand Sculpt">
+      <div class="arrival-body">
+        <div class="arrival-name">Leggings Sand Sculpt</div>
+        <div class="arrival-desc">Cintura alta moldeadora y tela anti-transparencia.</div>
+        <div class="arrival-price">$58</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section class="testimonials-section">
+  <div class="section-header" style="padding:0 2rem 3rem">
+    <div class="section-eyebrow" style="color:var(--bronze-light)">Nuestras Clientas</div>
+    <h2 class="section-title-lg" style="color:var(--white)">Lo Que <em>Dicen</em></h2>
+  </div>
+  <div class="testimonials-grid" style="padding:0 4rem">
+    <div class="testi-card">
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+      <div class="testi-text">"La calidad de las piezas es increíble, se adaptan perfecto y se ven espectacular. Ya hice mi segundo pedido."</div>
+      <div class="testi-author">— Valeria M., Panamá</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+      <div class="testi-text">"Atención súper rápida por WhatsApp, entrega puntual y los productos de belleza son exactamente lo que buscaba."</div>
+      <div class="testi-author">— Andrea S., Panamá</div>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     </div>
   </div>
 </section>
 
+<<<<<<< HEAD
 <!-- ═══════════════ MÁS VENDIDOS ═══════════════ -->
 <div class="section-header" id="mas-vendidos">
   <div class="section-eyebrow">Top Picks</div>
@@ -2496,6 +3189,8 @@
   </div>
 </section>
 
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 <!-- ═══════════════ ABOUT ═══════════════ -->
 <div class="section-header">
   <div class="section-eyebrow">Nuestra historia</div>
@@ -2506,7 +3201,11 @@
     <p class="about-lead">Somos más que ropa. Somos una <em>comunidad de mujeres</em> que se empoderan a través del movimiento y el cuidado personal.</p>
     <p class="about-body">En MG Activewear Spa nacimos con una misión clara: llevar ropa fitness de alta calidad y productos de belleza premium directamente a las mujeres de Panamá. Creemos que sentirte bien por dentro y por fuera es la base de cualquier logro.</p>
     <p class="about-body">Cada pieza de nuestra colección está seleccionada con atención al detalle — desde el corte hasta el tejido — para que te sientas cómoda, segura y poderosa en cada movimiento.</p>
+<<<<<<< HEAD
     <a class="btn-primary" href="https://wa.me/50765010703" target="_blank" rel="noopener noreferrer">Contáctanos →</a>
+=======
+    <a class="btn-primary" href="https://wa.me/50765010703" target="_blank">Contáctanos →</a>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   </div>
   <div class="about-visual">
     <div class="about-accent"></div>
@@ -2564,7 +3263,11 @@
     <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7">Estamos en <strong>Flor Plaza, Panamá</strong> — visítanos para retiros, pruebas y entregas personales.</p>
     <div class="map-card">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.7373507407786!2d-79.53428824939397!3d8.971831203114385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8c226b26903%3A0x27e215c6beaa9b9a!2sFlor+Plaza!5e0!3m2!1ses!2spa!4v1700000000000!5m2!1ses!2spa" loading="lazy"></iframe>
+<<<<<<< HEAD
       <a class="map-link" href="https://www.google.com/maps/place/Flor+Plaza/@8.9718312,-79.5342882,17z" target="_blank" rel="noopener noreferrer">➡️ Ver en Google Maps</a>
+=======
+      <a class="map-link" href="https://www.google.com/maps/place/Flor+Plaza/@8.9718312,-79.5342882,17z" target="_blank" rel="noopener">➡️ Ver en Google Maps</a>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     </div>
   </div>
   <div class="satisfaction-form">
@@ -2604,22 +3307,38 @@
       <a href="#fitness-section">Ropa Fitness</a>
       <a href="#beauty-section">Belleza</a>
       <a href="#nuevas-llegadas">Nuevas Llegadas</a>
+<<<<<<< HEAD
       <a href="#mas-vendidos">Más Vendidos</a>
     </div>
     <div class="footer-col">
       <h4>Contacto</h4>
       <a href="https://wa.me/50765010703" target="_blank" rel="noopener noreferrer">WhatsApp: +507 6501-0703</a>
       <a href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener noreferrer">@mgactivewearspa</a>
+=======
+      <a href="#beauty-section">Más Vendidos</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="https://wa.me/50765010703" target="_blank">WhatsApp: +507 6501-0703</a>
+      <a href="https://www.instagram.com/mgactivewearspa/" target="_blank">@mgactivewearspa</a>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
       <p>Flor Plaza, Panamá</p>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 MG Activewear Spa — Todos los derechos reservados</span>
     <div class="social-links">
+<<<<<<< HEAD
       <a class="social-link" href="https://wa.me/50765010703" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
       </a>
       <a class="social-link" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+=======
+      <a class="social-link" href="https://wa.me/50765010703" target="_blank" aria-label="WhatsApp">
+        <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
+      </a>
+      <a class="social-link" href="https://www.instagram.com/mgactivewearspa/" target="_blank" aria-label="Instagram">
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
         <svg fill="white" viewBox="0 0 24 24"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm8.75 5.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
       </a>
     </div>
@@ -2628,16 +3347,25 @@
 
 <!-- ═══════════════ FLOAT BUTTONS ═══════════════ -->
 <div class="float-btns">
+<<<<<<< HEAD
   <a class="float-btn whatsapp" href="https://wa.me/50765010703?text=Hola%20MG%20Activewear%20quiero%20información" target="_blank" rel="noopener noreferrer">
     <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
     WhatsApp
   </a>
   <a class="float-btn instagram" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener noreferrer">
+=======
+  <a class="float-btn whatsapp" href="https://wa.me/50765010703?text=Hola%20MG%20Activewear%20quiero%20información" target="_blank" rel="noopener">
+    <svg fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.91 11.91 0 0012.05 0C5.42 0 .02 5.4.02 12.03c0 2.12.55 4.19 1.59 6.02L0 24l6.13-1.6a11.97 11.97 0 005.92 1.51h.01c6.63 0 12.03-5.4 12.03-12.03 0-3.21-1.25-6.23-3.57-8.4z"/></svg>
+    WhatsApp
+  </a>
+  <a class="float-btn instagram" href="https://www.instagram.com/mgactivewearspa/" target="_blank" rel="noopener">
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
     <svg fill="white" viewBox="0 0 24 24"><path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm8.75 5.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/></svg>
     Instagram
   </a>
 </div>
 
+<<<<<<< HEAD
 <div class="mobile-cart-bar" id="mobileCartBar" aria-hidden="true">
   <div class="mobile-cart-copy">
     <span class="mobile-cart-kicker">Canasta activa</span>
@@ -2650,6 +3378,8 @@
   </div>
 </div>
 
+=======
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
 
 <!-- ═══════════════ CART DRAWER ═══════════════ -->
@@ -2703,6 +3433,7 @@
       </div>
       <div class="checkout-form-col">
         <h3>Datos de envío</h3>
+<<<<<<< HEAD
         <input class="form-field" type="text" id="ckName" placeholder="Nombre completo" autocomplete="name">
         <div class="field-error" id="ckNameError" aria-live="polite"></div>
         <input class="form-field" type="email" id="ckEmail" placeholder="Correo electrónico" autocomplete="email">
@@ -2711,6 +3442,12 @@
         <div class="field-error" id="ckPhoneError" aria-live="polite"></div>
         <input class="form-field" type="text" id="ckAddress" placeholder="Dirección de entrega" autocomplete="street-address">
         <div class="field-error" id="ckAddressError" aria-live="polite"></div>
+=======
+        <input class="form-field" type="text" id="ckName" placeholder="Nombre completo">
+        <input class="form-field" type="email" id="ckEmail" placeholder="Correo electrónico">
+        <input class="form-field" type="tel" id="ckPhone" placeholder="Teléfono (requerido)">
+        <input class="form-field" type="text" id="ckAddress" placeholder="Dirección de entrega">
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
         <select class="form-field" id="ckPayment">
           <option value="">Método de pago</option>
           <option>Tarjeta</option>
@@ -2718,9 +3455,14 @@
           <option>Transferencia bancaria</option>
           <option>Efectivo</option>
         </select>
+<<<<<<< HEAD
         <div class="field-error" id="ckPaymentError" aria-live="polite"></div>
         <textarea class="form-field" rows="3" id="ckNotes" placeholder="Notas del pedido (opcional)"></textarea>
         <button class="checkout-confirm-btn" id="checkoutConfirmBtn" type="button" onclick="placeOrder()">Confirmar y pagar</button>
+=======
+        <textarea class="form-field" rows="3" id="ckNotes" placeholder="Notas del pedido (opcional)"></textarea>
+        <button class="checkout-confirm-btn" onclick="placeOrder()">Confirmar y pagar</button>
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
         <div class="checkout-msg" id="checkoutMsg"></div>
       </div>
     </div>
@@ -2731,6 +3473,7 @@
 <div class="toast" id="toast"></div>
 
 <script>
+<<<<<<< HEAD
   (() => {
     document.querySelectorAll('.product-img-wrap').forEach((wrap) => {
       const imgs = wrap.querySelectorAll('.prod-img');
@@ -4035,8 +4778,225 @@
       filterAndSearch,
     };
   })();
+=======
+  // ─── CART STATE ───
+  let cart = [];
+  const byId = (id) => document.getElementById(id);
+
+  function closeCartIfOpen() {
+    const d = byId('cartDrawer');
+    const b = byId('cartBackdrop');
+    if (d && b && d.classList.contains('open')) {
+      d.classList.remove('open');
+      b.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function showToast(msg) {
+    const t = byId('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function toggleCart() {
+    const d = byId('cartDrawer');
+    const b = byId('cartBackdrop');
+    if (!d || !b) return;
+    d.classList.toggle('open');
+    b.classList.toggle('open');
+    document.body.style.overflow = d.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function addToCart(name, price, size='', color='') {
+    cart.push({ name, price, size, color });
+    renderCart();
+    showToast(`✓ ${name} añadido`);
+    // pulse count
+    const c = document.getElementById('cartCount');
+    c.style.transform = 'scale(1.4)';
+    setTimeout(() => c.style.transform = 'scale(1)', 200);
+  }
+
+  function addFromCard(btn, name, price) {
+    const card = btn.closest('.product-card');
+    const sizeEl = card ? card.querySelector('.size-select') : null;
+    const activeSwatch = card ? card.querySelector('.swatch.active') : null;
+    const size = sizeEl ? sizeEl.value : '';
+    const color = activeSwatch ? activeSwatch.title : '';
+    addToCart(name, price, size, color);
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function clearCart() {
+    cart = [];
+    renderCart();
+  }
+
+  function renderCart() {
+    const container = byId('cartItems');
+    const countEl = byId('cartCount');
+    const totalEl = byId('cartTotal');
+    const subEl = byId('cartSub');
+    if (!container || !countEl || !totalEl || !subEl) return;
+
+    const total = cart.reduce((s, i) => s + (Number(i.price) || 0), 0);
+    countEl.textContent = cart.length;
+    totalEl.textContent = `$${total}`;
+    subEl.textContent = `${cart.length} producto${cart.length!==1?'s':''}`;
+
+    if (cart.length === 0) {
+      container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛍️</div><div class="cart-empty-text">Tu canasta está vacía</div></div>`;
+      return;
+    }
+    container.innerHTML = cart.map((item, i) => `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-detail">${[item.size, item.color].filter(Boolean).join(' · ') || 'Sin talla/color'}</div>
+          <div class="cart-item-price">$${item.price}</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i})" aria-label="Eliminar">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function selectSwatch(el, color) {
+    const card = el.closest('.product-card, .beauty-card');
+    if (!card) return;
+    card.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // ─── IMAGE NAV ───
+  function nextImg(btn) {
+    const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    if (!imgs || imgs.length < 2) return;
+    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
+    imgs.forEach(i => i.style.display = 'none');
+    imgs[(cur + 1) % imgs.length].style.display = 'block';
+  }
+  function prevImg(btn) {
+    const wrap = btn.closest('.product-img-wrap, .beauty-img-wrap');
+    const imgs = wrap ? wrap.querySelectorAll('.prod-img, img:not(.hero-img)') : null;
+    if (!imgs || imgs.length < 2) return;
+    const cur = Array.from(imgs).findIndex(i => !i.style.display || i.style.display !== 'none');
+    imgs.forEach(i => i.style.display = 'none');
+    imgs[(cur - 1 + imgs.length) % imgs.length].style.display = 'block';
+  }
+
+  // ─── FILTER & SEARCH ───
+  function filterAndSearch() {
+    const cat = document.getElementById('filterCategory').value;
+    const q = document.getElementById('productSearch').value.toLowerCase();
+    const sort = document.getElementById('sortPrice').value;
+
+    let cards = Array.from(document.querySelectorAll('.products-grid .product-card'));
+    cards.forEach(c => {
+      const matchCat = cat === 'all' || c.dataset.category === cat;
+      const matchQ = !q || c.querySelector('.product-name').textContent.toLowerCase().includes(q);
+      c.style.display = matchCat && matchQ ? '' : 'none';
+    });
+
+    if (sort !== 'default') {
+      const grid = document.getElementById('productsGrid');
+      const visible = cards.filter(c => c.style.display !== 'none');
+      visible.sort((a, b) => sort === 'low'
+        ? +a.dataset.price - +b.dataset.price
+        : +b.dataset.price - +a.dataset.price
+      );
+      visible.forEach(c => grid.appendChild(c));
+    }
+  }
+
+  // ─── CHECKOUT ───
+  function openCheckout() {
+    if (cart.length === 0) { showToast('Añade productos primero'); return; }
+    closeCartIfOpen();
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    document.getElementById('checkoutSummaryTotal').textContent = `$${total}`;
+    document.getElementById('checkoutSummaryItems').innerHTML = cart.map(i =>
+      `<div class="summary-item"><span class="summary-item-name">${i.name}</span><span class="summary-item-price">$${i.price}</span></div>`
+    ).join('');
+    document.getElementById('checkoutOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkoutOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function placeOrder() {
+    const phone = document.getElementById('ckPhone').value.trim();
+    const name = document.getElementById('ckName').value.trim();
+    const payment = document.getElementById('ckPayment').value;
+    const msg = document.getElementById('checkoutMsg');
+
+    if (!phone) { msg.textContent = '⚠️ El teléfono es requerido.'; msg.classList.add('show'); return; }
+    if (!payment) { msg.textContent = '⚠️ Selecciona un método de pago.'; msg.classList.add('show'); return; }
+
+    msg.textContent = '✓ ¡Pedido recibido! Te contactamos pronto por WhatsApp.';
+    msg.classList.add('show');
+    msg.style.background = 'rgba(37,211,102,0.1)';
+    msg.style.color = '#1a7a3f';
+    setTimeout(() => { closeCheckout(); clearCart(); closeCartIfOpen(); }, 2500);
+  }
+
+  function checkoutWA() {
+    if (cart.length === 0) { showToast('Tu canasta está vacía'); return; }
+    const total = cart.reduce((s, i) => s + i.price, 0);
+    const lines = cart.map(i => `• ${i.name}${i.size?' ('+i.size+')':(i.color?' ('+i.color+')':'')} - $${i.price}`).join('\n');
+    const text = `Hola MG Activewear 👋\nQuiero hacer un pedido:\n\n${lines}\n\n*Total: $${total}*`;
+    window.open(`https://wa.me/50765010703?text=${encodeURIComponent(text)}`, '_blank');
+  }
+
+  function checkoutIG() {
+    window.open('https://www.instagram.com/mgactivewearspa/', '_blank');
+  }
+
+  function submitSatisfaction() {
+    const rating = document.getElementById('satRating').value;
+    if (!rating) { document.getElementById('satMsg').textContent = 'Por favor selecciona una calificación.'; return; }
+    document.getElementById('satMsg').textContent = '✓ ¡Gracias por tu opinión! Nos ayuda a mejorar.';
+    ['satName','satComment'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('satRating').selectedIndex = 0;
+    document.getElementById('satHighlight').selectedIndex = 0;
+  }
+
+  // ─── BACK TO TOP ───
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('backTop');
+    btn.classList.toggle('visible', window.scrollY > 400);
+    // Header shadow
+    const header = document.getElementById('mainHeader');
+    header.style.boxShadow = window.scrollY > 20 ? '0 2px 30px rgba(15,10,5,0.08)' : 'none';
+  });
+
+  // ─── INTERSECTION OBSERVER for cards ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .beauty-card, .arrival-card, .bs-card').forEach((c, i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(24px)';
+    c.style.transition = `opacity 0.5s ${i * 0.06}s ease, transform 0.5s ${i * 0.06}s ease`;
+    observer.observe(c);
+  });
+>>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
 </script>
 </body>
 </html>
-
-
