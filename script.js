@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
-=======
-﻿document.addEventListener('DOMContentLoaded', () => {
->>>>>>> 7350bfc (Alinear layout y estabilizar carrito)
   // Estado
   let cart = [];
   const inventory = {};
